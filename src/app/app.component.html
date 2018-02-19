@@ -1,7 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <app-projects></app-projects>
-</div>
+<html>
+  <head>
+    <base href="/">
+  </head>
+  <body>
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <nav>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/projects" routerLinkActive="active">Projects</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+  </body>
+</html>

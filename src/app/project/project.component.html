@@ -1,0 +1,30 @@
+<div class="project">
+  <div class="top">
+    <div class="top-text">
+      <div class="left">
+        <p>{{project.name}}</p>
+        <p>{{project.technologies}}</p>
+        <p>{{project.season}} {{project.year}}</p>
+      </div>
+      <div class="right">
+        <span>{{project.description}}</span>
+      </div>
+    </div>
+    <div class="photos">
+      <div *ngFor="let picture of project.pictures">
+        {{picture}}
+      </div>
+    </div>
+    <p *ngIf="project.demo_link != ''">{{project.demo_link}}</p>
+    <button (click)="bottomVisible=!bottomVisible" class="more-details">More Details</button>
+  </div>
+  <div *ngIf="bottomVisible" class="bottom">
+    <div class="hidden-sections">
+      <div *ngFor="let section of project.hidden_sections">
+        <h4>{{section.title}}</h4>
+        <p>{{section.text}}</p>
+      </div>
+    </div>
+    <button *ngIf="project.marketing_url != ''">{{project.marketing_url}}</button>
+  </div>
+</div>

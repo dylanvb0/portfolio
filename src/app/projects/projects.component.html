@@ -1,6 +1,2 @@
 <h2>Projects</h2>
-<ul>
-  <li *ngFor="let project of projects">
-    {{project.id}}: {{project.name}}: {{project.description}}
-  </li>
-</ul>
+<app-project *ngFor="let project of projects" [project]="project"></app-project>

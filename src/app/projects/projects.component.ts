@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../Project';
 import { ProjectService } from '../project.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-projects',
@@ -18,6 +19,13 @@ export class ProjectsComponent implements OnInit {
   ngOnInit() {
     this.getProjects();
   }
+
+  // ngAfterViewInit(){
+  //   $(".more-details").click( () => {
+  //     console.log(this);
+  //     $(this).parents("project").find("bottom").toggle();
+  //   })
+  // }
 
   getProjects(): void {
     this.projectService.getProjects().subscribe(projects => this.projects = projects);
