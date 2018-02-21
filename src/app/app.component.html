@@ -4,10 +4,17 @@
   </head>
   <body>
   <div style="text-align:center">
-    <nav>
+    <nav *ngIf="session.getClient() == null">
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/projects" routerLinkActive="active">Projects</a>
       <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/cms/login" routerLinkActive="active">Login</a>
+    </nav>
+    <nav *ngIf="session.getClient() != null">
+      <a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a>
+      <a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a>
+      <a (click)="logOut()">Logout</a>
     </nav>
     <router-outlet></router-outlet>
   </div>

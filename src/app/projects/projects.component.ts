@@ -20,13 +20,6 @@ export class ProjectsComponent implements OnInit {
     this.getProjects();
   }
 
-  // ngAfterViewInit(){
-  //   $(".more-details").click( () => {
-  //     console.log(this);
-  //     $(this).parents("project").find("bottom").toggle();
-  //   })
-  // }
-
   getProjects(): void {
     this.projectService.getProjects().subscribe(projects => this.projects = projects);
   }

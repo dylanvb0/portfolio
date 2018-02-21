@@ -24,4 +24,21 @@ export class ProjectService {
       });
   }
 
+  saveProject(project): Observable<number> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post(
+      "http://" + this.website + this.client.getNamespace() + this.method,
+      JSON.stringify(project),
+      httpOptions
+    ).map((data : number) => data);
+  }
+
+  deleteProject(project): Observable<Object> {
+    return this.http.delete("http://" + this.website + this.client.getNamespace() + this.method + "/" + project.id);
+  }
+
 }

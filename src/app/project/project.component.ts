@@ -16,4 +16,8 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
   }
 
+  visitMarketingSite() : void{
+    window.open(this.project.marketing_url, '_blank');
+  }
+
 }
