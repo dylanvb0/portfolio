@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project.service';
 import { Project } from '../Project';
+import { Router } from '@angular/router';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-edit-projects',
@@ -13,10 +15,15 @@ export class EditProjectsComponent implements OnInit {
   project : Project;
 
   constructor(
-    private projectService : ProjectService
+    private projectService : ProjectService,
+    private session : SessionService,
+    private router : Router
   ) { }
 
   ngOnInit() {
+    if(!this.session.isLoggedIn()){
+      this.router.navigateByUrl('/cms/login');
+    }
     this.getProjects();
     this.setNewProject();
   }

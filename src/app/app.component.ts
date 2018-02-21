@@ -11,10 +11,14 @@ import { SessionService } from './session.service';
 })
 export class AppComponent {
 
+  session : SessionService;
+
   constructor(
-    private session : SessionService,
+    private sessionService : SessionService,
     private router : Router
-  ){}
+  ){
+    this.session = this.sessionService;
+  }
 
   logOut() : void {
     this.session.logOut();

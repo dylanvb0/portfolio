@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { of } from 'rxjs/observable/of';
 import { Client } from './Client';
 
 @Injectable()
@@ -18,21 +19,24 @@ export class ClientService {
   ) { }
 
   getNamespace(): string {
-    // var routeNs = this.route.routerState.snapshot._root.children[0].value.params["namespace"];
     var routeNs = this.route.parseUrl(this.route.url).root.children.primary.segments[1];
-    // var routeNs = this.route.snapshot.paramMap;
-    console.log(routeNs);
     if(routeNs != null) return routeNs.toString();
     var currentDomain = window.location.hostname;
     if(this.domain == currentDomain) return this.namespace;
     console.log("cache miss");
     this.domain = currentDomain;
-    if(currentDomain == "localhost" || currentDomain == "dylanvb.me"){
+    if(currentDomain == "localhost"){
       this.namespace = "dylanvb";
       return this.namespace;
     }else{
-      this.namespace = "danieldmiller";
-      return this.namespace;
+      var req = this.http.get(this.website + '/' + currentDomain)
+        .map((ns : string) => {
+          this.namespace = ns;
+          return this.namespace;
+        });
+      req.subscribe(ns => {
+        return this.namespace;
+      })
     }
   }
 
