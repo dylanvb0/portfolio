@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -10,6 +10,7 @@ import { ProjectService } from './project.service';
 import { ClientService } from './client.service';
 import { SessionService } from './session.service';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -20,6 +21,8 @@ import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.componen
 import { EditAboutComponent } from './edit-about/edit-about.component';
 import { ClientComponent } from './client/client.component';
 import { CmsLoginComponent } from './cms-login/cms-login.component';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
@@ -36,6 +39,7 @@ const appRoutes = [
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     ProjectsComponent,
     AboutComponent,
     DashboardComponent,
@@ -55,8 +59,10 @@ const appRoutes = [
       { enableTracing: true }
     ),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     ProjectService,
     ClientService,

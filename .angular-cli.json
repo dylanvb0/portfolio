@@ -20,11 +20,16 @@
       "prefix": "app",
       "serviceWorker": true,
       "styles": [
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
+        "../node_modules/angular-bootstrap-md/scss/mdb-free.scss",
         "styles.scss",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
+        "../src/assets/hamburgers.css"
       ],
       "scripts": [
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/chart.js/dist/Chart.js",
+        "../node_modules/hammerjs/hammer.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
