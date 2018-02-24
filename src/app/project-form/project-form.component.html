@@ -28,6 +28,7 @@
       <label for="demo_link">Demo Link</label>
       <input [(ngModel)]="project.demo_link" type="text" class="form-control" id="demo_link">
     </div>
+    <app-hidden-sections-form [sections]="project.hidden_sections"></app-hidden-sections-form>
     <button (click)="saveChanges()" class="btn btn-success">Submit</button>
     <button (click)="deleteProject()" class="btn btn-danger">Delete</button>
 </div>

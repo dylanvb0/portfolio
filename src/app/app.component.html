@@ -16,6 +16,7 @@
       <a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a>
       <a (click)="logOut()">Logout</a>
     </nav>
+    <app-alert-message (showUnauthorized)="showUnauthorized()"></app-alert-message>
     <router-outlet></router-outlet>
   </div>
   </body>

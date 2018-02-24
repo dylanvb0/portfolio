@@ -1,3 +1,5 @@
+import { HiddenSection } from './HiddenSection';
+
 export class Project {
   id: number;
   name: string;
@@ -8,4 +10,5 @@ export class Project {
   year: number;
   pictures: string[];
   demo_link: string;
+  hidden_sections: HiddenSection[];
 }

@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="title">Title</label>
+  <input [(ngModel)]="section.title" type="text" class="form-control" id="title" required>
+</div>
+<div class="form-group">
+  <label for="text">Text</label>
+  <input [(ngModel)]="section.text" type="text" class="form-control" id="text" required>
+</div>
+<button (click)="removeSection();" class="btn btn-danger">Remove Section</button>
