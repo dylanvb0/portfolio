@@ -6,16 +6,16 @@ import { SessionService } from '../session.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  providers: [SessionService]
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
 
   constructor(
     public session : SessionService,
     private router : Router
   ){
-    console.log(this.session.getClient());
+    // console.log(this.session.getClient());
     // document.addEventListener("DOMContentLoaded", function(event) {
     //   const hamburger = document.querySelector(".hamburger");
     //   console.log(hamburger);

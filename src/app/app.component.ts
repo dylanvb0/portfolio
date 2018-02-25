@@ -7,18 +7,10 @@ import { SessionService } from './session.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
-  // providers: [SessionService]
 })
 export class AppComponent {
 
-  // session : SessionService;
-
-  constructor(
-    // private sessionService : SessionService,
-    // private router : Router
-  ){
-    // this.session = this.sessionService;
-  }
+  constructor(){  }
 
 
 }
