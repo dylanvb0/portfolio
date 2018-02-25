@@ -8,7 +8,7 @@ import { ClientService } from './client.service';
 @Injectable()
 export class SessionService {
 
-  private client : Client;
+  private client : Client = null;
 
   private website = 'http://dylanvb.me/api/';
   private method = '/clients';
@@ -22,6 +22,7 @@ export class SessionService {
      return this.clientService.authenticateClient(email, password)
       .map((data : Client) => {
         this.client = data;
+        console.log(this.client);
         sessionStorage.setItem('session_token', data.session_token);
         sessionStorage.setItem('token_expiration', this.datePipe.transform(data.token_expiration, 'yyyy-MM-dd HH:mm:ss'));
         return data != null;
@@ -29,15 +30,18 @@ export class SessionService {
    }
 
    isLoggedIn(){
-     return this.client != null &&
-      this.clientService.getNamespace() === this.client.namespace;
+     console.log(!!this.client);
+     return !!this.client && this.clientService.getNamespace() === this.client.namespace;
    }
 
-   logOut(){
-     this.client = null;
-   }
+  logOut(){
+    sessionStorage.removeItem('session_token');
+    sessionStorage.removeItem('token_expiration');
+    this.client = null;
+  }
 
    getClient(){
+     // console.log(this.client);
      return this.client;
    }
 

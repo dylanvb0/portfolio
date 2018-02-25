@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<nav *ngIf="session.getClient() == null" class="side-bar">
+<nav *ngIf="session.isLoggedIn() == null" class="side-bar">
   <ul>
     <li><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
     <li><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
@@ -20,9 +20,11 @@
     <li><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active">Login</a></li>
   </ul>
 </nav>
-<nav *ngIf="session.getClient() != null">
-  <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
-  <li><span class="icon icon-graph"></span><a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
-  <li><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
-  <li><span class="icon icon-login"></span><a (click)="logOut()">Logout</a>
+<nav *ngIf="session.isLoggedIn() != null">
+  <ul>
+    <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li><span class="icon icon-graph"></span><a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
+    <li><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
+    <li><span class="icon icon-login"></span><a (click)="logOut()">Logout</a>
+  </ul>
 </nav>

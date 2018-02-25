@@ -28,7 +28,7 @@ export class ProjectFormComponent implements OnInit {
 
   deleteProject(): void {
     this.projectService.deleteProject(this.project).subscribe();
-    this.projects = this.projects.filter(obj => obj.id !== this.project.id);
+    this.projects = this.projects.filter(obj => obj!== this.project);
     this.project = new Project();
   }
 }
