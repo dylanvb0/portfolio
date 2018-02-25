@@ -5,4 +5,6 @@ export class Client {
   domain: string;
   namespace: string;
   password: string;
+  session_token: string;
+  token_expiration: DateTimeFormat;
 }

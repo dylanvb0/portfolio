@@ -1,0 +1,2 @@
+<app-hidden-section-form *ngFor="let sect of sections" [section]="sect" (onDelete)="onDelete($event)"></app-hidden-section-form>
+<button (click)="newSection()" class="btn">Add</button>

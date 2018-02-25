@@ -30,8 +30,8 @@ export class ClientService {
       return this.namespace;
     }else{
       var req = this.http.get(this.website + '/' + currentDomain)
-        .map((ns : string) => {
-          this.namespace = ns;
+        .map((client : Client) => {
+          this.namespace = client.namespace;
           return this.namespace;
         });
       req.subscribe(ns => {
@@ -41,7 +41,7 @@ export class ClientService {
   }
 
   authenticateClient(email : string, password : string): Observable<Client> {
-    return this.http.get(this.website + '/' + email + '/' + password)
+    return this.http.get(this.website + '/' + btoa(email) + '/' + btoa(password))
       .map((data : Client) => data);
   }
 }

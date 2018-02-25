@@ -30,6 +30,7 @@ export class ProjectService {
         'Content-Type':  'application/json'
       })
     };
+    console.log(JSON.stringify(project));
     return this.http.post(
       "http://" + this.website + this.client.getNamespace() + this.method,
       JSON.stringify(project),

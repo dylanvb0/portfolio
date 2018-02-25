@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +10,7 @@ import { environment } from '../environments/environment';
 import { ProjectService } from './project.service';
 import { ClientService } from './client.service';
 import { SessionService } from './session.service';
+import { AlertMessageService } from './alert-message.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -21,6 +23,10 @@ import { EditDashboardComponent } from './edit-dashboard/edit-dashboard.componen
 import { EditAboutComponent } from './edit-about/edit-about.component';
 import { ClientComponent } from './client/client.component';
 import { CmsLoginComponent } from './cms-login/cms-login.component';
+import { HiddenSectionsFormComponent } from './hidden-sections-form/hidden-sections-form.component';
+import { HiddenSectionFormComponent } from './hidden-section-form/hidden-section-form.component';
+import { MyHttpInterceptor } from './http-interceptor';
+import { AlertMessageComponent } from './alert-message/alert-message.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -49,14 +55,16 @@ const appRoutes = [
     EditDashboardComponent,
     EditAboutComponent,
     ClientComponent,
-    CmsLoginComponent
+    CmsLoginComponent,
+    HiddenSectionsFormComponent,
+    HiddenSectionFormComponent,
+    AlertMessageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
+      appRoutes
     ),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
@@ -66,7 +74,14 @@ const appRoutes = [
   providers: [
     ProjectService,
     ClientService,
-    SessionService
+    SessionService,
+    AlertMessageService,
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyHttpInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
