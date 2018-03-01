@@ -5,6 +5,6 @@ $screen-sm: 768px;
 .main-content {
   padding: 90px 30px 30px 270px; //90 = $top-bar-height + 30px, 270 = $side-bar-width + 30px
 }
-@media (max-width: $screen-sm) {
-  .main-content {padding-left: 30px;}
-}
+// @media (max-width: $screen-sm) {
+//   .main-content {padding-left: 30px;}
+// }

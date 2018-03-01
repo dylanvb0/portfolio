@@ -6,7 +6,7 @@ import { SessionService } from '../session.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss', './hamburgers.css']
 })
 export class NavbarComponent implements OnInit {
 

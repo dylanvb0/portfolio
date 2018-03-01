@@ -9,7 +9,7 @@ import { Project } from '../Project';
 export class ProjectComponent implements OnInit {
 
   @Input() project : Project;
-  bottomVisible : boolean;
+  bottomVisible : boolean = false;
 
   constructor() { }
 

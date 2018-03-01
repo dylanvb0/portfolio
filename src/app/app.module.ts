@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { ProjectService } from './project.service';
+// import { DashboardService } from './dashboard.service';
 import { ClientService } from './client.service';
 import { SessionService } from './session.service';
 import { AlertMessageService } from './alert-message.service';
@@ -28,7 +29,7 @@ import { HiddenSectionFormComponent } from './hidden-section-form/hidden-section
 import { MyHttpInterceptor } from './http-interceptor';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
@@ -68,11 +69,12 @@ const appRoutes = [
     ),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    // MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     ProjectService,
+    // DashboardService,
     ClientService,
     SessionService,
     AlertMessageService,
