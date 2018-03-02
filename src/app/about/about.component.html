@@ -1,3 +1,26 @@
-<p>
-  about works!
-</p>
+<div *ngIf="about != null">
+  <p>{{about.text}}</p>
+  <div class="right">
+    <div *ngFor="let picture of about.pictures">
+      {{picture}}
+    </div>
+    <div class="get-connected">
+      <div *ngIf="about.email != null">
+        <span>ICON</span>
+        <span>{{about.email}}</span>
+      </div>
+      <div *ngIf="about.linkedin != null">
+        <span>ICON</span>
+        <span>{{about.linkedin}}</span>
+      </div>
+      <div *ngIf="about.github != null">
+        <span>ICON</span>
+        <span>{{about.github}}</span>
+      </div>
+      <div *ngIf="about.stackoverflow != null">
+        <span>ICON</span>
+        <span>{{about.stackoverflow}}</span>
+      </div>
+    </div>
+  </div>
+</div>

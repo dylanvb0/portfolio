@@ -20,8 +20,5 @@ export class HiddenSectionsFormComponent implements OnInit {
     this.sections.push(new HiddenSection());
   }
 
-  onDelete(section : HiddenSection) {
-    this.sections = this.sections.filter(obj => obj != section);
-  }
 
 }

@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { ProjectService } from './project.service';
+import { DashboardService } from './dashboard.service';
+import { AboutService } from './about.service';
 import { ClientService } from './client.service';
 import { SessionService } from './session.service';
 import { AlertMessageService } from './alert-message.service';
@@ -29,6 +31,9 @@ import { MyHttpInterceptor } from './http-interceptor';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ListDashboardBodyComponent } from './list-dashboard-body/list-dashboard-body.component';
+import { SimpleDashboardBodyComponent } from './simple-dashboard-body/simple-dashboard-body.component';
+import { HorizontalBarChartDashboardBodyComponent } from './horizontal-bar-chart-dashboard-body/horizontal-bar-chart-dashboard-body.component';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
@@ -58,7 +63,10 @@ const appRoutes = [
     CmsLoginComponent,
     HiddenSectionsFormComponent,
     HiddenSectionFormComponent,
-    AlertMessageComponent
+    AlertMessageComponent,
+    ListDashboardBodyComponent,
+    SimpleDashboardBodyComponent,
+    HorizontalBarChartDashboardBodyComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +81,8 @@ const appRoutes = [
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     ProjectService,
+    DashboardService,
+    AboutService,
     ClientService,
     SessionService,
     AlertMessageService,

@@ -9,7 +9,7 @@ import { Client } from './Client';
 @Injectable()
 export class ClientService {
 
-  private website = 'http://dylanvb.me/api/clients';
+  private website = 'https://dylanvb.me/api/clients';
   private domain = 'localhost';
   private namespace = 'dylanvb';
 

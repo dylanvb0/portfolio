@@ -3,43 +3,37 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Project } from './Project';
+import { About } from './About';
 import { ClientService } from './client.service';
 
 @Injectable()
-export class ProjectService {
+export class AboutService {
 
   private website = 'https://dylanvb.me/api/';
-  private method = '/projects';
+  private method = '/about';
 
   constructor(
     private http: HttpClient,
     private client: ClientService
   ) { }
 
-  getProjects(): Observable<Project[]> {
+  getAbout(): Observable<About> {
     return this.http.get(this.website + this.client.getNamespace() + this.method)
-      .map((data : any) => {
-        return data.map(obj => <Project>obj);
-      });
+      .map(data => <About>data);
   }
 
-  saveProject(project): Observable<number> {
+  saveProject(about): Observable<number> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
-    console.log(JSON.stringify(project));
+    console.log(JSON.stringify(about));
     return this.http.post(
       this.website + this.client.getNamespace() + this.method,
-      JSON.stringify(project),
+      JSON.stringify(about),
       httpOptions
     ).map((data : number) => data);
-  }
-
-  deleteProject(project): Observable<Object> {
-    return this.http.delete("http://" + this.website + this.client.getNamespace() + this.method + "/" + project.id);
   }
 
 }

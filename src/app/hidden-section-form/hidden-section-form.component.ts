@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { HiddenSection } from '../HiddenSection';
 
 @Component({
@@ -9,14 +9,14 @@ import { HiddenSection } from '../HiddenSection';
 export class HiddenSectionFormComponent implements OnInit {
 
   @Input() section : HiddenSection;
-  @Output() onDelete = new EventEmitter<HiddenSection>();
+  @Input() sections : HiddenSection[];
   constructor() { }
 
   ngOnInit() {
   }
 
   removeSection() : void {
-    this.onDelete.emit(this.section);
+    this.sections.splice(this.sections.indexOf(this.section));
   }
 
 }
