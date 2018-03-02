@@ -9,7 +9,7 @@ import { ClientService } from './client.service';
 @Injectable()
 export class DashboardService {
 
-  private website = 'dylanvb.me/api/';
+  private website = 'https://dylanvb.me/api/';
   private method = '/dashboardItems';
 
   constructor(
@@ -18,7 +18,7 @@ export class DashboardService {
   ) { }
 
   getDashboardItems() : Observable<DashboardItem[]> {
-    return this.http.get("http://" + this.website + this.client.getNamespace() + this.method)
+    return this.http.get(this.website + this.client.getNamespace() + this.method)
       .map((data : any) => {
         return data.map(obj => {
           return new DashboardItem(obj);

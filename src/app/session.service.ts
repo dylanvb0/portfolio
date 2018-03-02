@@ -10,7 +10,7 @@ export class SessionService {
 
   private client : Client = null;
 
-  private website = 'http://dylanvb.me/api/';
+  private website = 'https://dylanvb.me/api/';
   private method = '/clients';
 
   constructor(

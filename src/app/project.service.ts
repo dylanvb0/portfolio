@@ -9,7 +9,7 @@ import { ClientService } from './client.service';
 @Injectable()
 export class ProjectService {
 
-  private website = 'dylanvb.me/api/';
+  private website = 'https://dylanvb.me/api/';
   private method = '/projects';
 
   constructor(
@@ -18,7 +18,7 @@ export class ProjectService {
   ) { }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get("http://" + this.website + this.client.getNamespace() + this.method)
+    return this.http.get(this.website + this.client.getNamespace() + this.method)
       .map((data : any) => {
         return data.map(obj => <Project>obj);
       });
@@ -32,7 +32,7 @@ export class ProjectService {
     };
     console.log(JSON.stringify(project));
     return this.http.post(
-      "http://" + this.website + this.client.getNamespace() + this.method,
+      this.website + this.client.getNamespace() + this.method,
       JSON.stringify(project),
       httpOptions
     ).map((data : number) => data);

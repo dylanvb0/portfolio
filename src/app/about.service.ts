@@ -9,7 +9,7 @@ import { ClientService } from './client.service';
 @Injectable()
 export class AboutService {
 
-  private website = 'dylanvb.me/api/';
+  private website = 'https://dylanvb.me/api/';
   private method = '/about';
 
   constructor(
@@ -18,7 +18,7 @@ export class AboutService {
   ) { }
 
   getAbout(): Observable<About> {
-    return this.http.get("http://" + this.website + this.client.getNamespace() + this.method)
+    return this.http.get(this.website + this.client.getNamespace() + this.method)
       .map(data => <About>data);
   }
 
@@ -30,7 +30,7 @@ export class AboutService {
     };
     console.log(JSON.stringify(about));
     return this.http.post(
-      "http://" + this.website + this.client.getNamespace() + this.method,
+      this.website + this.client.getNamespace() + this.method,
       JSON.stringify(about),
       httpOptions
     ).map((data : number) => data);
