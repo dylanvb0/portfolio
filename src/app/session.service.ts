@@ -8,7 +8,7 @@ import { ClientService } from './client.service';
 @Injectable()
 export class SessionService {
 
-  private client : Client;
+  private client : Client = null;
 
   private website = 'http://dylanvb.me/api/';
   private method = '/clients';
@@ -16,28 +16,39 @@ export class SessionService {
   constructor(
     private clientService : ClientService,
     private datePipe : DatePipe
-  ) {}
+  ) {
+    var expiration = sessionStorage.getItem('token_expiration');
+    if(expiration != null && new Date(expiration) > new Date()){
+      this.client = JSON.parse(atob(sessionStorage.getItem('client')));
+    }
+  }
 
    logIn(email : string, password : string) : Observable<boolean>{
      return this.clientService.authenticateClient(email, password)
       .map((data : Client) => {
         this.client = data;
+        console.log(this.client);
         sessionStorage.setItem('session_token', data.session_token);
         sessionStorage.setItem('token_expiration', this.datePipe.transform(data.token_expiration, 'yyyy-MM-dd HH:mm:ss'));
+        sessionStorage.setItem('client', btoa(JSON.stringify(data)));
         return data != null;
       })
    }
 
    isLoggedIn(){
-     return this.client != null &&
-      this.clientService.getNamespace() === this.client.namespace;
+     console.log(!!this.client);
+     return !!this.client && this.clientService.getNamespace() === this.client.namespace;
    }
 
-   logOut(){
-     this.client = null;
-   }
+  logOut(){
+    sessionStorage.removeItem('session_token');
+    sessionStorage.removeItem('token_expiration');
+    sessionStorage.removeItem('client');
+    this.client = null;
+  }
 
    getClient(){
+     console.log(this.client);
      return this.client;
    }
 

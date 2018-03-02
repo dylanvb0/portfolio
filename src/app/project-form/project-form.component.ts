@@ -20,15 +20,18 @@ export class ProjectFormComponent implements OnInit {
   }
 
   saveChanges() : void {
-    if(this.project.id == null){
-      this.projects.push(this.project);
-    }
-    this.projectService.saveProject(this.project).subscribe(project_id => this.project.id = project_id);
+    this.projectService.saveProject(this.project).subscribe(project_id => {
+      if(this.project.id == null){
+        this.projects.push(this.project);
+      }
+      this.project.id = project_id;
+    });
   }
 
   deleteProject(): void {
-    this.projectService.deleteProject(this.project).subscribe();
-    this.projects = this.projects.filter(obj => obj.id !== this.project.id);
-    this.project = new Project();
+    this.projectService.deleteProject(this.project).subscribe(obj => {
+      this.projects.splice(this.projects.indexOf(this.project));
+      this.project = new Project();
+    });
   }
 }

@@ -1,0 +1,29 @@
+$title-width: 150px;
+.chart-row{
+  clear: both;
+  div {
+    float: left;
+
+    &.title {
+      width: $title-width;
+    }
+
+    &.bar {
+      background-color: green;
+      height: 6px;
+      border-radius: 3px;
+      margin-top: 9px;
+    }
+  }
+}
+.x-labels {
+  float: left;
+  clear: both;
+  margin-left: $title-width;
+  div {
+    float: left;
+    text-align: right;
+    color: #888;
+    font-size: 12px;
+  }
+}
