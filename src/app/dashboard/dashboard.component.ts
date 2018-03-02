@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { DashboardService } from '../dashboard.service';
-// import { DashboardItem } from '../DashboardItem';
+import { DashboardService } from '../dashboard.service';
+import { DashboardItem } from '../DashboardItem';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  // dashboardItems : DashboardItem[];
+  dashboardItems : DashboardItem[];
 
   constructor(
-    // private dashboardService : DashboardService
+    private dashboardService : DashboardService
   ) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getDashboardItems() {
-    // this.dashboardService.getDashboardItems().subscribe(items => this.dashboardItems = items);
+    this.dashboardService.getDashboardItems().subscribe(items => this.dashboardItems = items);
   }
 
 }

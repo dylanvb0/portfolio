@@ -1,0 +1,7 @@
+<div class="chart-row" *ngFor="let item of body.chart_items">
+  <div class="title">{{item.name}}</div>
+  <div [style.width.px]='getBarWidth(item.x_value)' class="bar"></div>
+</div>
+<div class="x-labels">
+  <div *ngFor="let label of body.x_labels" [style.width.px]="getLabelWidth(label)">{{label}}</div>
+</div>

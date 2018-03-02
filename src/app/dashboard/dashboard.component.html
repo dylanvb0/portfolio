@@ -1,9 +1,10 @@
-<p>Dashboard works</p>
-<!-- <div *ngFor="let item of dashboardItems">
+<div *ngFor="let item of dashboardItems" class="dashboard-item card">
   <div class="header">
     {{item.header_text}}
   </div>
   <div class="body">
-    {{item.type}}
+    <app-simple-dashboard-body *ngIf="item.type == 'simple'" [body]="item.body"></app-simple-dashboard-body>
+    <app-list-dashboard-body *ngIf="item.type == 'list'" [body]="item.body"></app-list-dashboard-body>
+    <app-horizontal-bar-chart-dashboard-body *ngIf="item.type == 'horizontal_bar'" [body]="item.body"></app-horizontal-bar-chart-dashboard-body>
   </div>
-</div> -->
+</div>
