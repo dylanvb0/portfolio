@@ -12,6 +12,7 @@ import { DashboardService } from './dashboard.service';
 import { AboutService } from './about.service';
 import { ClientService } from './client.service';
 import { SessionService } from './session.service';
+import { PhotoService } from './photo.service';
 import { AlertMessageService } from './alert-message.service';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -34,6 +35,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ListDashboardBodyComponent } from './list-dashboard-body/list-dashboard-body.component';
 import { SimpleDashboardBodyComponent } from './simple-dashboard-body/simple-dashboard-body.component';
 import { HorizontalBarChartDashboardBodyComponent } from './horizontal-bar-chart-dashboard-body/horizontal-bar-chart-dashboard-body.component';
+import { EditPhotosComponent } from './edit-photos/edit-photos.component';
+import { PhotosComponent } from './photos/photos.component';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
@@ -44,7 +47,8 @@ const appRoutes = [
   {path: 'cms/login', component: CmsLoginComponent },
   {path: 'cms/:namespace/dashboard', component: EditDashboardComponent },
   {path: 'cms/:namespace/projects', component: EditProjectsComponent },
-  {path: 'cms/:namespace/about', component: EditAboutComponent }
+  {path: 'cms/:namespace/about', component: EditAboutComponent },
+  {path: 'cms/:namespace/photos', component: EditPhotosComponent }
 ]
 
 @NgModule({
@@ -66,7 +70,9 @@ const appRoutes = [
     AlertMessageComponent,
     ListDashboardBodyComponent,
     SimpleDashboardBodyComponent,
-    HorizontalBarChartDashboardBodyComponent
+    HorizontalBarChartDashboardBodyComponent,
+    EditPhotosComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +91,7 @@ const appRoutes = [
     AboutService,
     ClientService,
     SessionService,
+    PhotoService,
     AlertMessageService,
     DatePipe,
     {

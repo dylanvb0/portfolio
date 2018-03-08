@@ -1,0 +1,23 @@
+.project{
+  width: 100%;
+  float: left;
+  .year{
+    width: 20%;
+    float: left;
+    clear: none;
+    font-size: 36px;
+  }
+  .project-info {
+    float: left;
+    width: 75%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    p {
+      margin: 5px;
+    }
+    .description{
+      clear: both;
+    }
+  }
+}

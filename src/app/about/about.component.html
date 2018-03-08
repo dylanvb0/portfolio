@@ -1,10 +1,8 @@
 <div *ngIf="about != null">
   <p>{{about.text}}</p>
   <div class="right">
-    <div *ngFor="let picture of about.pictures">
-      {{picture}}
-    </div>
-    <div class="get-connected">
+    <app-photos [photos]="about.pictures" [width]="1"></app-photos>
+    <div class="card get-connected">
       <div *ngIf="about.email != null">
         <span>ICON</span>
         <span>{{about.email}}</span>

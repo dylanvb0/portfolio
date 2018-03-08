@@ -39,7 +39,7 @@ export class ProjectService {
   }
 
   deleteProject(project): Observable<Object> {
-    return this.http.delete("http://" + this.website + this.client.getNamespace() + this.method + "/" + project.id);
+    return this.http.delete(this.website + this.client.getNamespace() + this.method + "/" + project.id);
   }
 
 }

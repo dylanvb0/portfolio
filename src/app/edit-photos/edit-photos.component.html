@@ -1,0 +1,4 @@
+<input type="file" #photoInput (change)="uploadPhoto()">
+<div *ngFor="let photo of photos">
+  <img src="{{getPhotoUrl(photo)}}">
+</div>

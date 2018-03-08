@@ -1,0 +1,5 @@
+<div *ngIf="photos != null && photos.length > 0" class="photos">
+  <div class="photo" *ngFor="let photo of photos">
+    <img src="{{getPhotoUrl(photo)}}">
+  </div>
+</div>
