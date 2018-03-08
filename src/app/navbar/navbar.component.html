@@ -1,31 +1,31 @@
 <div class="container-fluid">
   <div class="row top-bar z-depth-1">
     <div class="col-md-12">
-      <div class="hamburger hamburger--elastic">
+      <div class="hamburger hamburger--3dx">
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
         </div>
       </div>
-      <div class="user-menu pull-right pr-3">
-        <img class="z-depth-2" src="assets/avatar.png" />
+      <div class="user-menu pull-right">
+        <img mdbRippleRadius class="z-depth-2" src="assets/avatar.png" />
       </div>
     </div>
   </div>
 </div>
 <nav *ngIf="session.getClient() == null" class="side-bar">
   <ul>
-    <li><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-    <li><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/about" routerLinkActive="active">About</a></li>
-    <li><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active">Login</a></li>
+    <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
+    <li mdbRippleRadius><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/about" routerLinkActive="active z-depth-1">About</a></li>
+    <li mdbRippleRadius><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active z-depth-1">Login</a></li>
   </ul>
 </nav>
 <nav *ngIf="session.getClient() != null" class="side-bar">
   <ul>
-    <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
-    <li><span class="icon icon-graph"></span><a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/photos" routerLinkActive="active">Photos</a></li>
-    <li><span class="icon icon-login"></span><a (click)="logOut()">Logout</a>
+    <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li mdbRippleRadius><span class="icon icon-graph"></span><a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/photos" routerLinkActive="active">Photos</a></li>
+    <li mdbRippleRadius><span class="icon icon-login"></span><a (click)="logOut()">Logout</a>
   </ul>
 </nav>

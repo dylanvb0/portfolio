@@ -16,11 +16,13 @@ $screen-sm: 768px;
   .user-menu {
     height: 100%;
     position: relative;
-    img {display: inline-block; width: 36px; height: 36px; position: relative; top: 50%; transform: translateY(-50%);
+    border-radius: 50%;
+    img {
+      display: inline-block; width: 36px; height: 36px; position: relative; top: 50%; transform: translateY(-50%);
       background: #F5A623;
       padding: 6px;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
       border-radius: 50%;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
     }
   }
 }
