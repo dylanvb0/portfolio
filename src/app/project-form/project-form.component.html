@@ -29,6 +29,10 @@
       <label for="demo_link">Demo Link</label>
       <input [(ngModel)]="project.demo_link" type="text" class="form-control" id="demo_link">
     </div>
+    <div class="form-group">
+      <label for="sort_order">Sort Order</label>
+      <input (change)="sortProjects()" [(ngModel)]="project.sort_order" type="number" class="form-control" id="sort_order">
+    </div>
     <app-hidden-sections-form [sections]="project.hidden_sections"></app-hidden-sections-form>
     <button (click)="saveChanges()" class="btn btn-success">Submit</button>
     <button (click)="deleteProject()" class="btn btn-danger">Delete</button>

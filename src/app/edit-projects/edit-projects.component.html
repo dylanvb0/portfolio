@@ -1,7 +1,7 @@
 <div>
   <button (click)="setNewProject()">New Project</button>
-  <button *ngFor="let proj of projects" (click)="project = proj">{{proj.name}}</button>
+  <button *ngFor="let proj of projectService.projects" (click)="project = proj">{{proj.name}}</button>
 </div>
-<app-project-form [project]="project" [projects]="projects"></app-project-form>
+<app-project-form [project]="project" [projects]="projectService.projects"></app-project-form>
 <h2>Preview</h2>
 <app-project [project]="project"></app-project>

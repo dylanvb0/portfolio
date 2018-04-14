@@ -1,5 +1,5 @@
 <div class="project">
-  <p class="year">{{project.year}}</p>
+  <p class="year"><span *ngIf="shouldShowYear(project.id)">{{project.year}}</span></p>
   <div class="hoverable card project-info">
     <div class="top">
       <div class="top-text">

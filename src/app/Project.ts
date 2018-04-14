@@ -11,4 +11,5 @@ export class Project {
   pictures: string[];
   demo_link: string;
   hidden_sections: HiddenSection[];
+  sort_order: number;
 }

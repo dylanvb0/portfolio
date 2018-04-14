@@ -34,4 +34,8 @@ export class ProjectFormComponent implements OnInit {
     });
   }
 
+  sortProjects(){
+    this.projectService.sortProjects();
+  }
+
 }

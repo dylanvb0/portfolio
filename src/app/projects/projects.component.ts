@@ -9,10 +9,8 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectsComponent implements OnInit {
 
-  projects: Project[];
-
   constructor(
-    private projectService: ProjectService
+    public projectService: ProjectService
   ) { }
 
   ngOnInit() {
@@ -20,7 +18,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   getProjects(): void {
-    this.projectService.getProjects().subscribe(projects => this.projects = projects);
+    this.projectService.getProjects();
   }
 
 }

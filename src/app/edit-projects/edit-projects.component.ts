@@ -12,7 +12,6 @@ import { HiddenSection } from '../HiddenSection';
 })
 export class EditProjectsComponent implements OnInit {
 
-  projects : Project[];
   project : Project;
 
   constructor(
@@ -30,7 +29,7 @@ export class EditProjectsComponent implements OnInit {
   }
 
   getProjects(): void {
-    this.projectService.getProjects().subscribe(projects => this.projects = projects);
+    this.projectService.getProjects();
   }
 
   setNewProject(): void {
