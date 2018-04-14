@@ -4,6 +4,7 @@
       <label for="name">Name</label>
       <input [(ngModel)]="project.name" type="text" class="form-control" id="name" required>
     </div>
+    <app-photos-form [photos]="project.pictures"></app-photos-form>
     <div class="form-group">
       <label for="technologies">Technologies</label>
       <input [(ngModel)]="project.technologies" type="text" class="form-control" id="technologies">

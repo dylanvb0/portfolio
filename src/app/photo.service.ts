@@ -33,4 +33,11 @@ export class PhotoService {
       .map((data : any) => <string[]>data);
   }
 
+  deletePhoto(photo) : Observable<number>{
+    return this.http.delete(this.website + this.client.getNamespace() + this.method + '/' + photo)
+      .map(res => {
+        return 0;
+      })
+  }
+
 }

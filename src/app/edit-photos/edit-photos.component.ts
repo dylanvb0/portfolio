@@ -23,12 +23,18 @@ export class EditPhotosComponent implements OnInit {
 
   uploadPhoto() {
     this.photoService.uploadPhoto(this.photoInput.nativeElement.files[0]).subscribe(res => {
-      console.log("saved");
+      this.photos.push(this.photoInput.nativeElement.files[0].name);
     });
   }
 
   getPhotos() {
     this.photoService.getPhotos().subscribe(photos => this.photos = photos);
+  }
+
+  deletePhoto(photo) {
+    this.photoService.deletePhoto(photo).subscribe(res => {
+      this.photos.splice(this.photos.indexOf(photo));
+    });
   }
 
   getPhotoUrl(name) {

@@ -3,5 +3,5 @@
   <div [style.width.px]='getBarWidth(item.x_value)' class="bar"></div>
 </div>
 <div class="x-labels">
-  <div *ngFor="let label of body.x_labels" [style.width.px]="getLabelWidth(label)">{{label}}</div>
+  <div *ngFor="let label of body.x_labels" [style.width.px]="getLabelWidth(label.text)">{{label.text}}</div>
 </div>

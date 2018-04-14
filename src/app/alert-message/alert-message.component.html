@@ -1,3 +1,9 @@
-<div *ngIf="messageService.currentMessageType === 'unauthorized'" class="alert alert-danger">
+<div *ngIf="messageService.currentMessageType === 'unauthorized'" class="alert alert-danger alert-msg">
   Unauthorized: You are unauthorized to perform that action. Log in to gain access.
+</div>
+<div *ngIf="messageService.currentMessageType === 'error'" class="alert alert-danger alert-msg">
+  Error: There was an error processing your request.
+</div>
+<div *ngIf="messageService.currentMessageType === 'success'" class="alert alert-danger alert-msg">
+  Success: Operation completed successfully.
 </div>

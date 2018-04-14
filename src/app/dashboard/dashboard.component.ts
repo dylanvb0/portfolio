@@ -9,18 +9,13 @@ import { DashboardItem } from '../DashboardItem';
 })
 export class DashboardComponent implements OnInit {
 
-  dashboardItems : DashboardItem[];
-
   constructor(
-    private dashboardService : DashboardService
+    public dashboardService : DashboardService
   ) { }
 
   ngOnInit() {
-    this.getDashboardItems()
+    this.dashboardService.getDashboardItems()
   }
 
-  getDashboardItems() {
-    this.dashboardService.getDashboardItems().subscribe(items => this.dashboardItems = items);
-  }
 
 }

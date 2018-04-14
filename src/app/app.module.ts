@@ -37,6 +37,13 @@ import { SimpleDashboardBodyComponent } from './simple-dashboard-body/simple-das
 import { HorizontalBarChartDashboardBodyComponent } from './horizontal-bar-chart-dashboard-body/horizontal-bar-chart-dashboard-body.component';
 import { EditPhotosComponent } from './edit-photos/edit-photos.component';
 import { PhotosComponent } from './photos/photos.component';
+import { PhotosFormComponent } from './photos-form/photos-form.component';
+import { DashboardFormComponent } from './dashboard-form/dashboard-form.component';
+import { DashboardSimpleBodyFormComponent } from './dashboard-simple-body-form/dashboard-simple-body-form.component';
+import { DashboardListBodyFormComponent } from './dashboard-list-body-form/dashboard-list-body-form.component';
+import { DashboardHorizontalBarChartBodyFormComponent } from './dashboard-horizontal-bar-chart-body-form/dashboard-horizontal-bar-chart-body-form.component';
+import { ChartItemsFormComponent } from './chart-items-form/chart-items-form.component';
+import { ChartItemFormComponent } from './chart-item-form/chart-item-form.component';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
@@ -72,7 +79,14 @@ const appRoutes = [
     SimpleDashboardBodyComponent,
     HorizontalBarChartDashboardBodyComponent,
     EditPhotosComponent,
-    PhotosComponent
+    PhotosComponent,
+    PhotosFormComponent,
+    DashboardFormComponent,
+    DashboardSimpleBodyFormComponent,
+    DashboardListBodyFormComponent,
+    DashboardHorizontalBarChartBodyFormComponent,
+    ChartItemsFormComponent,
+    ChartItemFormComponent
   ],
   imports: [
     BrowserModule,

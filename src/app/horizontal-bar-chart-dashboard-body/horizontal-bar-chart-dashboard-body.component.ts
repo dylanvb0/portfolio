@@ -23,8 +23,8 @@ export class HorizontalBarChartDashboardBodyComponent implements OnInit {
   }
 
   getLabelWidth(label){
-    if(this.body.x_labels[0] == label) {
-      this.first_label_width = 8 * this.body.x_labels[0].length;
+    if(this.body.x_labels[0].text == label) {
+      this.first_label_width = 8 * this.body.x_labels[0].text.length;
       return this.first_label_width;
     }
     return (this.max_width - this.first_label_width) / (this.body.x_labels.length - 1);

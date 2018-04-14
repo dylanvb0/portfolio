@@ -20,6 +20,8 @@ export class MyHttpInterceptor implements HttpInterceptor {
       if(err instanceof HttpErrorResponse){
         if(err.status === 401){
           this.alertMsg.show("unauthorized");
+        }else if(err.status === 500){
+          this.alertMsg.show("error");
         }
         return next.handle(req);
       }

@@ -13,11 +13,10 @@ export class ProjectFormComponent implements OnInit {
   @Input() projects : Project[];
 
   constructor(
-    private projectService : ProjectService
+    private projectService : ProjectService,
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   saveChanges() : void {
     this.projectService.saveProject(this.project).subscribe(project_id => {
@@ -34,4 +33,5 @@ export class ProjectFormComponent implements OnInit {
       this.project = new Project();
     });
   }
+
 }

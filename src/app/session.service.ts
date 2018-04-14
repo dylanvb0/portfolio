@@ -36,7 +36,6 @@ export class SessionService {
    }
 
    isLoggedIn(){
-     console.log(!!this.client);
      return !!this.client && this.clientService.getNamespace() === this.client.namespace;
    }
 
@@ -48,7 +47,6 @@ export class SessionService {
   }
 
    getClient(){
-     console.log(this.client);
      return this.client;
    }
 

@@ -1,0 +1,16 @@
+<div *ngFor="let item of body.list_items; let i = index">
+  <div class="form-group">
+    <label for="item-{{i}}">Item</label>
+    <input [(ngModel)]="body.list_items[i].text" type="text" class="form-control" id="item-{{i}}" required>
+    <button (click)="removeItem(i)" class="btn btn-danger">Remove</button>
+  </div>
+</div>
+<button (click)="addItem()" class="btn btn-info">Add Item</button>
+<div class="form-group">
+  <label for="text_size">Text Size</label>
+  <select [(ngModel)]="body.text_size" type="text" class="form-control" id="text_size" required>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+</div>

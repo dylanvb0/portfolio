@@ -21,10 +21,10 @@ export class DashboardItem {
         this.body = <SimpleDashboardBody>obj.body;
         break;
       case "list":
-        this.body = <ListDashboardBody>obj.body;
+        this.body = new ListDashboardBody(obj.body);
         break;
       case "horizontal_bar":
-        this.body = <HorizontalBarChartDashboardBody>obj.body;
+        this.body = new HorizontalBarChartDashboardBody(obj.body);
         break;
       default:
         this.body = null;

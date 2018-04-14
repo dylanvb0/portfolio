@@ -1,3 +1,8 @@
-<p>
-  edit-dashboard works!
-</p>
+<div>
+  <button (click)="setNewDashboardItem()">New Project</button>
+  <button *ngFor="let item of dashboardService.dashboardItems" (click)="currItem = item">{{item.header_text}}</button>
+</div>
+<app-dashboard-form [item]="currItem" [items]="dashboardService.dashboardItems"></app-dashboard-form>
+<h2>Preview</h2>
+<!-- <button (click)="single = !single">Toggle</button> -->
+<app-dashboard></app-dashboard>

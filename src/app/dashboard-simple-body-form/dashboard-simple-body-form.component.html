@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label for="text">Text</label>
+  <input [(ngModel)]="body.text" type="text" class="form-control" id="text" required>
+</div>
+<div class="form-group">
+  <label for="text_size">Text Size</label>
+  <select [(ngModel)]="body.text_size" type="text" class="form-control" id="text_size" required>
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+  </select>
+</div>
