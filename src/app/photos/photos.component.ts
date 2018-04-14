@@ -11,6 +11,7 @@ export class PhotosComponent implements OnInit {
 
   @Input() photos: string[];
   @Input() width: number;
+  private startIndex : number;
 
   constructor(
     private photoService: PhotoService,
@@ -18,10 +19,19 @@ export class PhotosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.startIndex = 0;
   }
-  
+
   getPhotoUrl(name) {
     return "https://dylanvb.me/wwwroot/" + this.client.getNamespace() + "/images/" + name;
+  }
+
+  photoShouldShow(index) : boolean {
+    let endIndex = this.startIndex + this.width - 1;
+    if(index >= this.startIndex && index <= endIndex){
+      return true;
+    }
+    return false;
   }
 
 }

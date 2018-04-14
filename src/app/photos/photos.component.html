@@ -1,5 +1,7 @@
 <div *ngIf="photos != null && photos.length > 0" class="photos">
-  <div class="photo" *ngFor="let photo of photos">
-    <img src="{{getPhotoUrl(photo)}}">
+  <button *ngIf="startIndex > 0" (click)="startIndex = startIndex - 1;">Previous</button>
+  <div class="photo" *ngFor="let photo of photos; let i = index">
+    <img *ngIf="photoShouldShow(i)" src="{{getPhotoUrl(photo)}}">
   </div>
+  <button *ngIf="startIndex + width < photos.length" (click)="startIndex = startIndex + 1;">Next</button>
 </div>
