@@ -20,5 +20,5 @@
     <app-dashboard-list-body-form *ngIf="item.type == 'list'" [body]="item.body"></app-dashboard-list-body-form>
     <app-dashboard-horizontal-bar-chart-body-form *ngIf="item.type == 'horizontal_bar'" [body]="item.body"></app-dashboard-horizontal-bar-chart-body-form>
     <button (click)="saveChanges()" class="btn btn-success">Submit</button>
-    <button (click)="deleteProject()" class="btn btn-danger">Delete</button>
+    <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
 </div>

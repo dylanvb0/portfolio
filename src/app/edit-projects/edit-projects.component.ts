@@ -15,7 +15,7 @@ export class EditProjectsComponent implements OnInit {
   project : Project;
 
   constructor(
-    private projectService : ProjectService,
+    public projectService : ProjectService,
     private session : SessionService,
     private router : Router
   ) { }

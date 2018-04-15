@@ -28,6 +28,13 @@ export class DashboardFormComponent implements OnInit {
     })
   }
 
+  deleteProject(): void {
+    this.dashboardService.deleteDashboardItem(this.item).subscribe(obj => {
+      this.items.splice(this.items.indexOf(this.item));
+      this.item = new DashboardItem("simple");
+    });
+  }
+
   sortDashboardItems(){
     this.dashboardService.sortDashboardItems();
   }

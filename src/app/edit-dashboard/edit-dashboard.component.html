@@ -1,5 +1,5 @@
 <div>
-  <button (click)="setNewDashboardItem()">New Project</button>
+  <button (click)="setNewItem()">New Project</button>
   <button *ngFor="let item of dashboardService.dashboardItems" (click)="currItem = item">{{item.header_text}}</button>
 </div>
 <app-dashboard-form [item]="currItem" [items]="dashboardService.dashboardItems"></app-dashboard-form>

@@ -20,7 +20,7 @@ export class DashboardListBodyFormComponent implements OnInit {
     this.body.list_items.splice(i,1);
   }
 
-  private addItem() {
+  addItem() {
     this.body.list_items.push(new TextItem(""));
   }
 

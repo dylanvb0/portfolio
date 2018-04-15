@@ -20,7 +20,7 @@ export class DashboardHorizontalBarChartBodyFormComponent implements OnInit {
     this.body.x_labels.splice(i,1);
   }
 
-  private addItem() {
+  addItem() {
     this.body.x_labels.push(new TextItem(""));
   }
 }

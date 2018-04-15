@@ -16,7 +16,7 @@ export class EditDashboardComponent implements OnInit {
   constructor(
     private session : SessionService,
     private router : Router,
-    private dashboardService : DashboardService
+    public dashboardService : DashboardService
   ) { }
 
   ngOnInit() {
