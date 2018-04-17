@@ -15,4 +15,8 @@ export class ChartItemsFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  addChartItem() {
+    this.items.push(new ChartItem());
+  }
+
 }

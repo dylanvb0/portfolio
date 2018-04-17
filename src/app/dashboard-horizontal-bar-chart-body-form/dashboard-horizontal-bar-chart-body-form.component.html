@@ -1,17 +1,22 @@
-<div class="form-group">
-  <label for="min_value">Min Value</label>
-  <input [(ngModel)]="body.min_value" type="number" class="form-control" id="min_value" required>
+<div class="form-row">
+  <div class="col">
+    <label for="min_value">Min Value</label>
+    <input [(ngModel)]="body.min_value" type="number" class="form-control" id="min_value" required>
+  </div>
+  <div class="col">
+    <label for="max_value">Max Value</label>
+    <input [(ngModel)]="body.max_value" type="number" class="form-control" id="max_value" required>
+  </div>
 </div>
-<div class="form-group">
-  <label for="max_value">Max Value</label>
-  <input [(ngModel)]="body.max_value" type="number" class="form-control" id="max_value" required>
-</div>
-<div *ngFor="let item of body.x_labels; let i = index">
-  <div class="form-group">
+<div *ngFor="let item of body.x_labels; let i = index" class="form-row">
+  <div class="col">
     <label for="x_label-{{i}}">X Label</label>
     <input [(ngModel)]="body.x_labels[i].text" type="text" class="form-control" id="x_label-{{i}}" required>
+  </div>
+  <div class="col">
     <button (click)="removeItem(i)" class="btn btn-danger">Remove</button>
   </div>
 </div>
 <button (click)="addItem()" class="btn btn-info">Add X Label</button>
 <app-chart-items-form [items]="body.chart_items"></app-chart-items-form>
+<br>

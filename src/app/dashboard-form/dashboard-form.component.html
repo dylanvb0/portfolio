@@ -1,20 +1,22 @@
 <div class="container">
   <h1>Dashboard Item Form</h1>
-    <div class="form-group">
-      <label for="header_text">Header Text</label>
-      <input [(ngModel)]="item.header_text" type="text" class="form-control" id="header_text" required>
-    </div>
-    <div class="form-group">
-      <label for="sort_order">Sort Order</label>
-      <input (change)="sortDashboardItems()" [(ngModel)]="item.sort_order" type="number" class="form-control" id="sort_order" required>
-    </div>
-    <div class="form-group">
-      <label for="type">Type</label>
-      <select [(ngModel)]="item.type" type="text" class="form-control" id="type">
-        <option value="simple">Simple Text</option>
-        <option value="list">List</option>
-        <option value="horizontal_bar">Horizontal Bar Chart</option>
-      </select>
+    <div class="form-row">
+      <div class="col">
+        <label for="header_text">Header Text</label>
+        <input [(ngModel)]="item.header_text" type="text" class="form-control" id="header_text" required>
+      </div>
+      <div class="col">
+        <label for="sort_order">Sort Order</label>
+        <input (change)="sortDashboardItems()" [(ngModel)]="item.sort_order" type="number" class="form-control" id="sort_order" required>
+      </div>
+      <div class="col">
+        <label for="type">Type</label>
+        <select (change)="setBody()" [(ngModel)]="item.type" type="text" class="form-control" id="type">
+          <option value="simple">Simple Text</option>
+          <option value="list">List</option>
+          <option value="horizontal_bar">Horizontal Bar Chart</option>
+        </select>
+      </div>
     </div>
     <app-dashboard-simple-body-form *ngIf="item.type == 'simple'" [body]="item.body"></app-dashboard-simple-body-form>
     <app-dashboard-list-body-form *ngIf="item.type == 'list'" [body]="item.body"></app-dashboard-list-body-form>

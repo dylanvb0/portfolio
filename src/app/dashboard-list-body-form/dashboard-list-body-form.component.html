@@ -1,7 +1,9 @@
-<div *ngFor="let item of body.list_items; let i = index">
-  <div class="form-group">
+<div *ngFor="let item of body.list_items; let i = index" class="form-row">
+  <div class="col">
     <label for="item-{{i}}">Item</label>
     <input [(ngModel)]="body.list_items[i].text" type="text" class="form-control" id="item-{{i}}" required>
+  </div>
+  <div class="col">
     <button (click)="removeItem(i)" class="btn btn-danger">Remove</button>
   </div>
 </div>

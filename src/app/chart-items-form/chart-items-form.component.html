@@ -1,1 +1,2 @@
-<app-chart-item-form *ngFor="let item of items" [item]="item"></app-chart-item-form>
+<app-chart-item-form *ngFor="let item of items" [item]="item" [items]="items" class="form-row"></app-chart-item-form>
+<button (click)="addChartItem()" class="btn btn-info">Add Chart Item</button>

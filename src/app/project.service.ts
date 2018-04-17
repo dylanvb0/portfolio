@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { Project } from './Project';
 import { ClientService } from './client.service';
+import { AlertMessageService } from './alert-message.service';
 
 @Injectable()
 export class ProjectService {
@@ -15,7 +16,8 @@ export class ProjectService {
 
   constructor(
     private http: HttpClient,
-    private client: ClientService
+    private client: ClientService,
+    private messageService : AlertMessageService
   ) { }
 
   getProjects(): void {
@@ -39,7 +41,12 @@ export class ProjectService {
       this.website + this.client.getNamespace() + this.method,
       JSON.stringify(project),
       httpOptions
-    ).map((data : number) => data);
+    ).map((data : number) => {
+      if(data > -1){
+        this.messageService.show("success");
+      }
+      return data;
+    });
   }
 
   deleteProject(project): Observable<Object> {

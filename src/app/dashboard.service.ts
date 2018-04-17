@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 
 import { DashboardItem } from './DashboardItem';
 import { ClientService } from './client.service';
+import { AlertMessageService } from './alert-message.service';
 
 @Injectable()
 export class DashboardService {
@@ -15,7 +16,8 @@ export class DashboardService {
 
   constructor(
     private http: HttpClient,
-    private client : ClientService
+    private client : ClientService,
+    private messageService : AlertMessageService
   ) { }
 
   getDashboardItems() : void {
@@ -50,7 +52,12 @@ export class DashboardService {
       this.website + this.client.getNamespace() + this.method,
       JSON.stringify(item),
       httpOptions
-    ).map((data : number) => data);
+    ).map((data : number) => {
+      if(data > -1){
+        this.messageService.show("success");
+      }
+      return data;
+    });
   }
 
   deleteDashboardItem(item): Observable<Object> {

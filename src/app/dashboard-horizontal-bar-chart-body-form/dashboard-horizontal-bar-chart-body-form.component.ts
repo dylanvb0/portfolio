@@ -23,4 +23,5 @@ export class DashboardHorizontalBarChartBodyFormComponent implements OnInit {
   addItem() {
     this.body.x_labels.push(new TextItem(""));
   }
+
 }

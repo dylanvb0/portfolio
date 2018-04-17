@@ -1,16 +1,19 @@
-<div *ngFor="let photo of photos; let i = index">
-  <select (change)="cleanArray($event,i)" [(ngModel)]="photos[i]">
-    <option></option>
-    <option *ngFor="let photoOption of photoOptions">
-      {{photoOption}}
-    </option>
-  </select>
-</div>
-<div>
-  <select (change)="newPhoto($event)">
-    <option></option>
-    <option *ngFor="let photoOption of photoOptions">
-      {{photoOption}}
-    </option>
-  </select>
+<div class="form-row">
+  <label>Photos</label>
+  <div *ngFor="let photo of photos; let i = index" class="col">
+    <select class="form-control" (change)="cleanArray($event,i)" [(ngModel)]="photos[i]">
+      <option></option>
+      <option *ngFor="let photoOption of photoOptions">
+        {{photoOption}}
+      </option>
+    </select>
+  </div>
+  <div class="col">
+    <select class="form-control" (change)="newPhoto($event)">
+      <option></option>
+      <option *ngFor="let photoOption of photoOptions">
+        {{photoOption}}
+      </option>
+    </select>
+  </div>
 </div>

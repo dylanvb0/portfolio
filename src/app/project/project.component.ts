@@ -24,6 +24,7 @@ export class ProjectComponent implements OnInit {
   }
 
   shouldShowYear(id) : boolean {
+    if(typeof this.projectService.projects === 'undefined') return false;
     for(var i = 0; i < this.projectService.projects.length; i++){
       if(this.projectService.projects[i].id === id){
         if(i == 0) return true;

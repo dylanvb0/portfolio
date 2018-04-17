@@ -1,39 +1,47 @@
 <div class="container">
   <h1>Project Form</h1>
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input [(ngModel)]="project.name" type="text" class="form-control" id="name" required>
+    <div class="form-row">
+
+      <div class="col">
+        <label for="name">Name</label>
+        <input [(ngModel)]="project.name" type="text" class="form-control" id="name" required>
+      </div>
+      <div class="col">
+        <label for="technologies">Technologies</label>
+        <input [(ngModel)]="project.technologies" type="text" class="form-control" id="technologies">
+      </div>
     </div>
     <app-photos-form [photos]="project.pictures"></app-photos-form>
-    <div class="form-group">
-      <label for="technologies">Technologies</label>
-      <input [(ngModel)]="project.technologies" type="text" class="form-control" id="technologies">
-    </div>
-    <div class="form-group">
+    <div class="col">
       <label for="description">Description</label>
-      <input [(ngModel)]="project.description" type="text" class="form-control" id="description">
+      <textarea [(ngModel)]="project.description" class="form-control" id="description"></textarea>
     </div>
-    <div class="form-group">
-      <label for="marketing_url">Marketing URL</label>
-      <input [(ngModel)]="project.marketing_url" type="text" class="form-control" id="marketing_url">
+    <div class="form-row">
+      <div class="col">
+        <label for="marketing_url">Marketing URL</label>
+        <input [(ngModel)]="project.marketing_url" type="text" class="form-control" id="marketing_url">
+      </div>
+      <div class="col">
+        <label for="season">Season</label>
+        <input [(ngModel)]="project.season" type="text" class="form-control" id="season">
+      </div>
+      <div class="col">
+        <label for="year">Year</label>
+        <input [(ngModel)]="project.year" type="text" class="form-control" id="year">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="season">Season</label>
-      <input [(ngModel)]="project.season" type="text" class="form-control" id="season">
-    </div>
-    <div class="form-group">
-      <label for="year">Year</label>
-      <input [(ngModel)]="project.year" type="text" class="form-control" id="year">
-    </div>
-    <div class="form-group">
-      <label for="demo_link">Demo Link</label>
-      <input [(ngModel)]="project.demo_link" type="text" class="form-control" id="demo_link">
-    </div>
-    <div class="form-group">
-      <label for="sort_order">Sort Order</label>
-      <input (change)="sortProjects()" [(ngModel)]="project.sort_order" type="number" class="form-control" id="sort_order">
+    <div class="form-row">
+      <div class="col">
+        <label for="demo_link">Demo Link</label>
+        <input [(ngModel)]="project.demo_link" type="text" class="form-control" id="demo_link">
+      </div>
+      <div class="col">
+        <label for="sort_order">Sort Order</label>
+        <input (change)="sortProjects()" [(ngModel)]="project.sort_order" type="number" class="form-control" id="sort_order">
+      </div>
     </div>
     <app-hidden-sections-form [sections]="project.hidden_sections"></app-hidden-sections-form>
+    <br>
     <button (click)="saveChanges()" class="btn btn-success">Submit</button>
     <button (click)="deleteProject()" class="btn btn-danger">Delete</button>
 </div>

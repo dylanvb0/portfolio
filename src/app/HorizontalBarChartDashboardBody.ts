@@ -10,6 +10,10 @@ export class HorizontalBarChartDashboardBody implements DashboardBody {
 
   constructor(body){
     this.x_labels = new Array<TextItem>();
+    if(body == null){
+      this.chart_items = new Array<ChartItem>();
+      return;
+    }
     for(let label of body.x_labels){
       this.x_labels.push(new TextItem(label));
     }

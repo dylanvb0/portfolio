@@ -6,6 +6,7 @@ export class ListDashboardBody implements DashboardBody {
   text_size : string;
 
   constructor(body) {
+    if(body == null) return;
     this.list_items = new Array<TextItem>();
     for(let item of body.list_items){
       this.list_items.push(new TextItem(item));

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DashboardItem } from '../DashboardItem';
 import { DashboardService } from '../dashboard.service';
+import { SimpleDashboardBody } from '../SimpleDashboardBody';
+import { ListDashboardBody } from '../ListDashboardBody';
+import { HorizontalBarChartDashboardBody } from '../HorizontalBarChartDashboardBody';
 
 @Component({
   selector: 'app-dashboard-form',
@@ -37,6 +40,16 @@ export class DashboardFormComponent implements OnInit {
 
   sortDashboardItems(){
     this.dashboardService.sortDashboardItems();
+  }
+
+  setBody(){
+    if(this.item.type === "simple"){
+      this.item.body = new SimpleDashboardBody();
+    }else if(this.item.type === "list"){
+      this.item.body = new ListDashboardBody(null);
+    }else if(this.item.type === "horizontal_bar"){
+      this.item.body = new HorizontalBarChartDashboardBody(null);
+    }
   }
 
 }

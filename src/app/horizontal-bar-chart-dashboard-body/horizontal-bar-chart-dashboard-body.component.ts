@@ -18,8 +18,9 @@ export class HorizontalBarChartDashboardBodyComponent implements OnInit {
   }
 
   getBarWidth(value) {
-    const k = this.max_width / (this.body.max_value - this.body.min_value)
-    return value * k + this.body.min_value;
+    const width_per_point = this.max_width / (this.body.max_value - this.body.min_value)
+    const num_points = value - this.body.min_value;
+    return width_per_point * num_points;
   }
 
   getLabelWidth(label){
