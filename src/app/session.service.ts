@@ -27,7 +27,6 @@ export class SessionService {
      return this.clientService.authenticateClient(email, password)
       .map((data : Client) => {
         this.client = data;
-        console.log(this.client);
         sessionStorage.setItem('session_token', data.session_token);
         sessionStorage.setItem('token_expiration', this.datePipe.transform(data.token_expiration, 'yyyy-MM-dd HH:mm:ss'));
         sessionStorage.setItem('client', btoa(JSON.stringify(data)));
@@ -36,7 +35,7 @@ export class SessionService {
    }
 
    isLoggedIn(){
-     return !!this.client && this.clientService.getNamespace() === this.client.namespace;
+     return !!this.client;// && this.clientService.getNamespace() === this.client.namespace;
    }
 
   logOut(){

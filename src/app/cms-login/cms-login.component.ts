@@ -25,7 +25,9 @@ export class CmsLoginComponent implements OnInit {
     this.session.logIn(this.client.email, this.client.password).subscribe(data => {
       if(data){
         var namespace = this.session.getClient().namespace;
+        console.log(namespace);
         this.router.navigateByUrl('/cms/' + namespace + '/dashboard');
+        console.log("should have navigated to: /cms/" + namespace + "/dashboard");
       }else{
         alert("Login unsuccessful");
       }

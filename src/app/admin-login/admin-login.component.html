@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="email">Email</label>
+  <input [(ngModel)]="admin.email" type="text" class="form-control" id="email">
+</div>
+<div class="form-group">
+  <label for="password">Password</label>
+  <input [(ngModel)]="admin.password" (keyup.enter)="login()" type="password" class="form-control" id="password">
+</div>
+<button (click)="login()" class="btn btn-success">Submit</button>

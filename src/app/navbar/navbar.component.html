@@ -7,12 +7,12 @@
         </div>
       </div>
       <div class="user-menu pull-right">
-        <img mdbRippleRadius class="z-depth-2" src="assets/avatar.png" />
+        <img routerLink="/admin/login" mdbRippleRadius class="z-depth-2" src="assets/avatar.png" />
       </div>
     </div>
   </div>
 </div>
-<nav *ngIf="session.getClient() == null" class="side-bar">
+<nav *ngIf="!client_session.isLoggedIn() && !admin_session.isLoggedIn()" class="side-bar">
   <ul>
     <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
     <li mdbRippleRadius><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
@@ -20,12 +20,19 @@
     <li mdbRippleRadius><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active z-depth-1">Login</a></li>
   </ul>
 </nav>
-<nav *ngIf="session.getClient() != null" class="side-bar">
+<nav *ngIf="client_session.isLoggedIn()" class="side-bar">
   <ul>
-    <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/cms/{{session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
-    <li mdbRippleRadius><span class="icon icon-graph"></span><a routerLink="/cms/{{session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
-    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
-    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{session.getClient().namespace}}/photos" routerLinkActive="active">Photos</a></li>
-    <li mdbRippleRadius><span class="icon icon-login"></span><a (click)="logOut()">Logout</a>
+    <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li mdbRippleRadius><span class="icon icon-graph"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/photos" routerLinkActive="active">Photos</a></li>
+    <li mdbRippleRadius><span class="icon icon-login"></span><a (click)="logOutClient()">Logout</a>
+  </ul>
+</nav>
+<nav *ngIf="admin_session.isLoggedIn()" class="side-bar">
+  <ul>
+    <li mdbRippleRadius><span class="icon icon-user"></span><a routerLink="/admin/clients" routerLinkActive="active">Clients</a></li>
+    <li mdbRippleRadius><span class="icon icon-speedometer"></span><a routerLink="/admin/admins" routerLinkActive="active">Admins</a></li>
+    <li mdbRippleRadius><span class="icon icon-login"></span><a (click)="logOutAdmin()">Logout</a>
   </ul>
 </nav>

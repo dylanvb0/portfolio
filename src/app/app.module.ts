@@ -11,7 +11,9 @@ import { ProjectService } from './project.service';
 import { DashboardService } from './dashboard.service';
 import { AboutService } from './about.service';
 import { ClientService } from './client.service';
+import { AdminService } from './admin.service';
 import { SessionService } from './session.service';
+import { AdminSessionService } from './admin-session.service';
 import { PhotoService } from './photo.service';
 import { AlertMessageService } from './alert-message.service';
 import { AppComponent } from './app.component';
@@ -44,18 +46,25 @@ import { DashboardListBodyFormComponent } from './dashboard-list-body-form/dashb
 import { DashboardHorizontalBarChartBodyFormComponent } from './dashboard-horizontal-bar-chart-body-form/dashboard-horizontal-bar-chart-body-form.component';
 import { ChartItemsFormComponent } from './chart-items-form/chart-items-form.component';
 import { ChartItemFormComponent } from './chart-item-form/chart-item-form.component';
+import { AdminsComponent } from './admins/admins.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 const appRoutes = [
   {path: 'dashboard', component: DashboardComponent },
   {path: 'projects', component: ProjectsComponent },
   {path: 'about', component: AboutComponent },
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: 'login', redirectTo: '/cms/login'},
-  {path: 'cms/login', component: CmsLoginComponent },
   {path: 'cms/:namespace/dashboard', component: EditDashboardComponent },
   {path: 'cms/:namespace/projects', component: EditProjectsComponent },
   {path: 'cms/:namespace/about', component: EditAboutComponent },
-  {path: 'cms/:namespace/photos', component: EditPhotosComponent }
+  {path: 'cms/:namespace/photos', component: EditPhotosComponent },
+  {path: 'login', redirectTo: '/cms/login'},
+  {path: 'cms', redirectTo: '/cms/login'},
+  {path: 'cms/login', component: CmsLoginComponent },
+  {path: 'admin/login', component: AdminLoginComponent },
+  {path: 'admin/clients', component: ClientComponent },
+  {path: 'admin/admins', component: AdminsComponent },
+  {path: 'admin', redirectTo: '/admin/login'}
 ]
 
 @NgModule({
@@ -86,7 +95,9 @@ const appRoutes = [
     DashboardListBodyFormComponent,
     DashboardHorizontalBarChartBodyFormComponent,
     ChartItemsFormComponent,
-    ChartItemFormComponent
+    ChartItemFormComponent,
+    AdminsComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +115,9 @@ const appRoutes = [
     DashboardService,
     AboutService,
     ClientService,
+    AdminService,
     SessionService,
+    AdminSessionService,
     PhotoService,
     AlertMessageService,
     DatePipe,
