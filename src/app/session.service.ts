@@ -26,6 +26,7 @@ export class SessionService {
    logIn(email : string, password : string) : Observable<boolean>{
      return this.clientService.authenticateClient(email, password)
       .map((data : Client) => {
+        if(data == null) return false;
         this.client = data;
         sessionStorage.setItem('session_token', data.session_token);
         sessionStorage.setItem('token_expiration', this.datePipe.transform(data.token_expiration, 'yyyy-MM-dd HH:mm:ss'));

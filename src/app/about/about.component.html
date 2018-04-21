@@ -1,23 +1,23 @@
-<div *ngIf="about != null">
-  <p>{{about.text}}</p>
+<div *ngIf="aboutService.about != null">
+  <p>{{aboutService.about.text}}</p>
   <div class="right">
-    <app-photos [photos]="about.pictures" [width]="1"></app-photos>
+    <app-photos [photos]="aboutService.about.pictures" [width]="1"></app-photos>
     <div class="card get-connected">
-      <div *ngIf="about.email != null">
+      <div *ngIf="aboutService.about.email != null">
         <span>ICON</span>
-        <span>{{about.email}}</span>
+        <span>{{aboutService.about.email}}</span>
       </div>
-      <div *ngIf="about.linkedin != null">
+      <div *ngIf="aboutService.about.linkedin != null">
         <span>ICON</span>
-        <span>{{about.linkedin}}</span>
+        <span>{{aboutService.about.linkedin}}</span>
       </div>
-      <div *ngIf="about.github != null">
+      <div *ngIf="aboutService.about.github != null">
         <span>ICON</span>
-        <span>{{about.github}}</span>
+        <span>{{aboutService.about.github}}</span>
       </div>
-      <div *ngIf="about.stackoverflow != null">
+      <div *ngIf="aboutService.about.stackoverflow != null">
         <span>ICON</span>
-        <span>{{about.stackoverflow}}</span>
+        <span>{{aboutService.about.stackoverflow}}</span>
       </div>
     </div>
   </div>

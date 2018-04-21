@@ -1,3 +1,23 @@
-<p>
-  edit-about works!
-</p>
+<div class="col">
+  <label for="text">Text</label>
+  <textarea [(ngModel)]="aboutService.about.text" class="form-control" id="text" required></textarea>
+</div>
+<div class="col">
+  <label for="email">Email</label>
+  <input [(ngModel)]="aboutService.about.email" type="email" class="form-control" id="email" required>
+</div>
+<div class="col">
+  <label for="linkedin">LinkedIn</label>
+  <input [(ngModel)]="aboutService.about.linkedin" type="text" class="form-control" id="linkedin" required>
+</div>
+<div class="col">
+  <label for="github">GitHub</label>
+  <input [(ngModel)]="aboutService.about.github" type="text" class="form-control" id="github" required>
+</div>
+<div class="col">
+  <label for="github">StackOverflow</label>
+  <input [(ngModel)]="aboutService.about.stackoverflow" type="text" class="form-control" id="stackoverflow" required>
+</div>
+<button (click)="saveAbout()" class="btn btn-success">Save</button>
+<h2>Preview</h2>
+<app-about></app-about>
