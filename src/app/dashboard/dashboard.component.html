@@ -1,10 +1,18 @@
-<div *ngFor="let item of dashboardService.dashboardItems" class="dashboard-item card hoverable">
-  <div class="header">
-    {{item.header_text}}
-  </div>
-  <div class="body">
-    <app-simple-dashboard-body *ngIf="item.type == 'simple'" [body]="item.body"></app-simple-dashboard-body>
-    <app-list-dashboard-body *ngIf="item.type == 'list'" [body]="item.body"></app-list-dashboard-body>
-    <app-horizontal-bar-chart-dashboard-body *ngIf="item.type == 'horizontal_bar'" [body]="item.body"></app-horizontal-bar-chart-dashboard-body>
+<h2 class="mb-5">Lorem ipsum dolor sit amet, diam scelerisque, a vitae ut, pellentesque et integer. Nulla arcu sin vina clarenta.</h2>
+<div class="container-fluid">
+  <div class="row dashboard">
+    <div *ngFor="let item of dashboardService.dashboardItems" class="col-lg-6 col-md-12 col-sm-12 mb-4">
+      <div class="dashboard-item card hoverable col-md-12">
+        <div class="header">
+          {{item.header_text}}
+        </div>
+        <div class="body">
+          <app-simple-dashboard-body *ngIf="item.type == 'simple'" [body]="item.body"></app-simple-dashboard-body>
+          <app-list-dashboard-body *ngIf="item.type == 'list'" [body]="item.body"></app-list-dashboard-body>
+          <app-horizontal-bar-chart-dashboard-body *ngIf="item.type == 'horizontal_bar'" [body]="item.body"></app-horizontal-bar-chart-dashboard-body>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+

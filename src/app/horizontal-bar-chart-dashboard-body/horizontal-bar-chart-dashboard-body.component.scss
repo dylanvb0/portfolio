@@ -1,6 +1,11 @@
-$title-width: 150px;
+$title-width: 120px;
 .chart-row{
   clear: both;
+
+  .right {
+    width: 65%;
+  }
+
   div {
     float: left;
 
@@ -9,7 +14,7 @@ $title-width: 150px;
     }
 
     &.bar {
-      background-color: green;
+      background-color: #51E2C4;
       height: 6px;
       border-radius: 3px;
       margin-top: 9px;
@@ -19,11 +24,15 @@ $title-width: 150px;
 .x-labels {
   float: left;
   clear: both;
-  margin-left: $title-width;
+  width: calc(100%); //120px = $title-width
+  padding-left: $title-width;
+
   div {
     float: left;
-    text-align: right;
     color: #888;
     font-size: 12px;
+
+    &:nth-of-type(1) {text-align: left;}
+    &:nth-of-type(2) {text-align: right;}
   }
 }

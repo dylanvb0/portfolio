@@ -1,14 +1,23 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css');
 $side-bar-width: 240px;
-$top-bar-height: 60px;
+$top-bar-height: 80px;
 
 $screen-sm: 768px;
 
 .top-bar {
-  position: fixed; top: 0; z-index: 1;
+  position: fixed; top: 0; right: 0; z-index: 1;
   background-color: #fff;
-  width: 100%;
+  width: calc(100% - 240px);
+  margin: 0;
   height: $top-bar-height;
+  h1 {
+    display: inline-block;
+    font-size: 32px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+  }
   .hamburger {display: none;}
   .icon-menu {font-size: 24px; position: relative; top: 50%; transform: translateY(-50%);
     transition: all 0.3s;
@@ -30,7 +39,7 @@ $screen-sm: 768px;
 .side-bar {
   float: left;
   position: fixed;
-  padding-top: $top-bar-height;
+  // padding-top: $top-bar-height;
   width: $side-bar-width;
   height: 100%;
   background: linear-gradient(#9FDDFD, #056EC2);
@@ -47,7 +56,7 @@ $screen-sm: 768px;
     padding: 0;
     li {
       position: relative;
-      $side-bar-item-height: 70px;
+      $side-bar-item-height: 80px;
       height: $side-bar-item-height;
       padding-left: 24px;
       text-align: left;
@@ -79,6 +88,9 @@ $screen-sm: 768px;
 @media (max-width: $screen-sm) {
   .side-bar {
     left: - $side-bar-width;
+  }
+  .top-bar {
+    width: 100%;
   }
   .top-bar {
     .hamburger {display: inline-block;}
