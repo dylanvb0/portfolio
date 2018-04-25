@@ -21,8 +21,10 @@ export class ClientService {
 
   getNamespace(): string {
     var routeNs = this.route.parseUrl(this.route.url).root.children.primary.segments[1];
-    if(routeNs != null) return routeNs.toString();
+    console.log(routeNs);
+    if(typeof routeNs != 'undefined') return routeNs.toString();
     var currentDomain = window.location.hostname;
+    console.log(this.client);
     if(this.client.domain == currentDomain) return this.client.namespace;
     console.log("cache miss");
     this.getClient().subscribe(ns => {
@@ -32,14 +34,17 @@ export class ClientService {
 
   getClient(): Observable<Client> {
     if(this.client.id != null){
+      console.log("hit");
       return of(this.client);
     }else{
       this.client.domain = window.location.hostname;
       if(this.client.domain == "localhost"){
+        console.log("local");
         this.client.namespace = "dylanvb";
         this.client.name = "Dylan Vander Berg";
         return of(this.client);
       }else{
+        console.log("remote");
         return this.http.get(this.website + '/' + this.client.domain)
           .map((client : Client) => {
             this.client = client;

@@ -18,19 +18,17 @@ export class HorizontalBarChartDashboardBodyComponent implements OnInit {
   }
 
   getBarWidth(value) {
-    console.log("value: " + value);
-    // const width_per_point = this.max_width / (this.body.max_value - this.body.min_value)
-    // const num_points = value - this.body.min_value;
+    const width_per_point = this.max_width / (this.body.max_value - this.body.min_value)
+    const num_points = value - this.body.min_value;
     return value * 10;
   }
 
   getLabelWidth(label){
-    // if(this.body.x_labels[0].text == label) {
-    //   this.first_label_width = 8 * this.body.x_labels[0].text.length;
-    //   return this.first_label_width;
-    // }
-    // return (this.max_width - this.first_label_width) / (this.body.x_labels.length - 1);
-    return 100 / this.body.x_labels.length;
+    if(this.body.x_labels[0].text == label) {
+      this.first_label_width = 8 * this.body.x_labels[0].text.length;
+      return this.first_label_width;
+    }
+    return (this.max_width - this.first_label_width) / (this.body.x_labels.length - 1);
   }
 
 }
