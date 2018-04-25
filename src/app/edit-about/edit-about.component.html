@@ -1,4 +1,8 @@
 <div class="col">
+  <label for="overview">Overview (For Dashboard Page)</label>
+  <textarea [(ngModel)]="aboutService.about.overview" class="form-control" id="overview" required></textarea>
+</div>
+<div class="col">
   <label for="text">Text</label>
   <textarea [(ngModel)]="aboutService.about.text" class="form-control" id="text" required></textarea>
 </div>

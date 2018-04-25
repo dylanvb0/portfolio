@@ -10,33 +10,42 @@ import { Client } from './Client';
 export class ClientService {
 
   private website = 'https://dylanvb.me/api/clients';
-  private domain = 'localhost';
-  private namespace = 'dylanvb';
+  public client : Client;
 
   constructor(
     private route : Router,
     private http : HttpClient
-  ) { }
+  ) {
+    this.client = new Client();
+  }
 
   getNamespace(): string {
     var routeNs = this.route.parseUrl(this.route.url).root.children.primary.segments[1];
     if(routeNs != null) return routeNs.toString();
     var currentDomain = window.location.hostname;
-    if(this.domain == currentDomain) return this.namespace;
+    if(this.client.domain == currentDomain) return this.client.namespace;
     console.log("cache miss");
-    this.domain = currentDomain;
-    if(currentDomain == "localhost"){
-      this.namespace = "dylanvb";
-      return this.namespace;
+    this.getClient().subscribe(ns => {
+      return this.client.namespace;
+    })
+  }
+
+  getClient(): Observable<Client> {
+    if(this.client.id != null){
+      return of(this.client);
     }else{
-      var req = this.http.get(this.website + '/' + currentDomain)
-        .map((client : Client) => {
-          this.namespace = client.namespace;
-          return this.namespace;
-        });
-      req.subscribe(ns => {
-        return this.namespace;
-      })
+      this.client.domain = window.location.hostname;
+      if(this.client.domain == "localhost"){
+        this.client.namespace = "dylanvb";
+        this.client.name = "Dylan Vander Berg";
+        return of(this.client);
+      }else{
+        return this.http.get(this.website + '/' + this.client.domain)
+          .map((client : Client) => {
+            this.client = client;
+            return this.client;
+          });
+      }
     }
   }
 

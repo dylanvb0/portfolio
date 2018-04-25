@@ -1,5 +1,6 @@
 export class About {
   id : number;
+  overview : string;
   text : string;
   pictures : string[];
   email : string;
