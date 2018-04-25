@@ -25,7 +25,7 @@ export class ClientService {
     if(typeof routeNs != 'undefined') return routeNs.toString();
     var currentDomain = window.location.hostname;
     console.log(this.client);
-    if(this.client.domain == currentDomain) return this.client.namespace;
+    if(this.client.domain == currentDomain && typeof this.client.namespace != 'undefined') return this.client.namespace;
     console.log("cache miss");
     this.getClient().subscribe(ns => {
       return this.client.namespace;
@@ -33,7 +33,7 @@ export class ClientService {
   }
 
   getClient(): Observable<Client> {
-    if(this.client.id != null){
+    if(typeof this.client.id != 'undefined'){
       console.log("hit");
       return of(this.client);
     }else{
