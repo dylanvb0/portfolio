@@ -13,6 +13,7 @@ export class DashboardService {
   private website = 'https://dylanvb.me/api/';
   private method = '/dashboardItems';
   public dashboardItems : DashboardItem[];
+  public finishedTyping = false;
 
   constructor(
     private http: HttpClient,
