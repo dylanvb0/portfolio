@@ -36,7 +36,7 @@ export class SessionService {
    }
 
    isLoggedIn(){
-     return !!this.client;// && this.clientService.getNamespace() === this.client.namespace;
+     return !!this.client;// && this.clientService.client.namespace === this.client.namespace;
    }
 
   logOut(){

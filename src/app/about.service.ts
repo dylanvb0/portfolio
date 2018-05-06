@@ -21,13 +21,18 @@ export class AboutService {
     private messageService : AlertMessageService
   ) { }
 
-  getAbout(): void {
-    this.http.get(this.website + this.client.getNamespace() + this.method)
+  getAbout(ns?): Observable<void> {
+    if(!ns){
+      this.client.getNamespace(res => this.getAbout(res)).subscribe();
+      return;
+    }
+    this.http.get(this.website + ns + this.method)
       .map(data => <About>data)
       .subscribe(about => this.about = about[0]);
   }
 
-  saveAbout(): Observable<number> {
+  saveAbout(ns?): Observable<number> {
+    if(!ns) return this.client.getNamespace(res => this.saveAbout(res));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -35,7 +40,7 @@ export class AboutService {
     };
     console.log(JSON.stringify(this.about));
     return this.http.post(
-      this.website + this.client.getNamespace() + this.method,
+      this.website + ns + this.method,
       JSON.stringify(this.about),
       httpOptions
     ).map((data : number) => {

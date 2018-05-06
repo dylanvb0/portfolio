@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   ){ }
 
   ngOnInit() {
-    this.client_service.getClient();
+    // this.client_service.getClient();
   }
 
   logOutClient() : void {
