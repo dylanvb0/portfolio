@@ -2,8 +2,16 @@ $side-bar-width: 240px;
 $top-bar-height: 80px;
 $screen-sm: 768px;
 
+body {
+  background-color: #F4F4F4;
+}
+:host {
+  // float: left; //fix content not being wrapped by outer elements like body, html, and app-root
+}
+
 .main-content {
   padding: 110px 30px 30px 270px; //110 = $top-bar-height + 30px, 270 = $side-bar-width + 30px
+  overflow: auto;
 }
 @media (max-width: $screen-sm) {
   .main-content {padding-left: 30px;}
