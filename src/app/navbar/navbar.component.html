@@ -18,7 +18,9 @@
     <li><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
     <li><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
     <li><span class="icon icon-user"></span><a routerLink="/about" routerLinkActive="active z-depth-1">About</a></li>
-    <li><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active z-depth-1">Login</a></li>
+
+    <!-- Temporarily hide login for aesthetic purposes -->
+    <!-- <li><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active z-depth-1">Login</a></li> -->
   </ul>
 </nav>
 <nav *ngIf="client_session.isLoggedIn()" class="side-bar">
