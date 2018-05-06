@@ -1,8 +1,8 @@
-<div class="container">
+<!-- <div class="container"> -->
   <div *ngIf="aboutService.about != null" class="typewriter">
     <h2 class="mb-5">{{aboutService.about.overview}}</h2>
   </div>
-</div>
+<!-- </div> -->
   <div *ngIf="dashboardService.finishedTyping" class="container-fluid">
     <div class="row dashboard">
       <div *ngFor="let item of dashboardService.dashboardItems" class="col-xl-4 col-lg-6 col-sm-12 mb-4">

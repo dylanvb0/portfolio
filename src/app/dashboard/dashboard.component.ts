@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
     this.intervalId = window.setInterval(() => {
       this.dashboardService.finishedTyping = true;
       this.clearDelayTimer();
-    }, 4000)
+    }, 0)
   }
 
 
