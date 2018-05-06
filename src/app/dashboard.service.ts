@@ -13,7 +13,7 @@ export class DashboardService {
   private website = 'https://dylanvb.me/api/';
   private method = '/dashboardItems';
   public dashboardItems : DashboardItem[];
-  public finishedTyping = true;
+  public finishedTyping = false;
 
   constructor(
     private http: HttpClient,
@@ -23,7 +23,7 @@ export class DashboardService {
 
   getDashboardItems(ns?) : Observable<void> {
     if(!ns) {
-      this.client.getNamespace(res => this.getDashboardItems(res)).subscribe(); 
+      this.client.getNamespace(res => this.getDashboardItems(res)).subscribe();
       return;
     }
     console.log("getting dashboard items");
