@@ -37,8 +37,8 @@ div.container {
     // margin: 20px;
     padding: 0;
     .header {
-      height: 60px;
-      padding: 15px;
+      height: 60px; line-height: 60px;
+      padding-left: 20px; padding-right: 20px;
       background-color: #4AA0DD;
       border-top-right-radius: .3rem;
       border-top-left-radius: .3rem;
@@ -46,6 +46,6 @@ div.container {
       color: white;
     }
     .body {
-      padding: 15px;
+      padding: 20px;
     }
   }

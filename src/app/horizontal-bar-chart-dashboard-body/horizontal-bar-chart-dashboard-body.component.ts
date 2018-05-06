@@ -23,12 +23,19 @@ export class HorizontalBarChartDashboardBodyComponent implements OnInit {
     return value * 10;
   }
 
-  getLabelWidth(label){
-    if(this.body.x_labels[0].text == label) {
-      this.first_label_width = 8 * this.body.x_labels[0].text.length;
-      return this.first_label_width;
+  positionLabel(label){
+    // console.log(this.body.x_labels);
+    console.log("x_labels[0]: " + this.body.x_labels[0].text + ", label: " + label.text);
+    console.log("x_labels[1]: " + this.body.x_labels[1].text + ", label: " + label.text);
+    // console.log(this.body.x_labels[this.body.x_labels.length]);
+    if(this.body.x_labels[0].text == label.text) {
+      return "left";
     }
-    return (this.max_width - this.first_label_width) / (this.body.x_labels.length - 1);
+    if(this.body.x_labels[this.body.x_labels.length - 1].text == label.text) {
+      return "right";
+    }
+
+    return "middle";
   }
 
 }

@@ -5,5 +5,5 @@
   </div>
 </div>
 <div class="x-labels">
-  <div *ngFor="let label of body.x_labels" [style.width.%]='getLabelWidth(label.x_value)'>{{label.text}}</div>
+  <div *ngFor="let label of body.x_labels" [class]='positionLabel(label)'>{{label.text}}</div>
 </div>
