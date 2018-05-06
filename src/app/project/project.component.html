@@ -1,5 +1,8 @@
 <div class="project">
-  <p class="year"><span *ngIf="shouldShowYear(project.id)">{{project.year}}</span></p>
+  <div class="year">
+    <span *ngIf="shouldShowYear(project.id)">{{project.year}}</span>
+    <div class="line"></div>
+  </div>
   <div class="hoverable card project-info">
     <div class="top">
       <div class="top-text">
@@ -9,6 +12,11 @@
           <p>{{project.technologies}}</p>
         </div>
         <app-photos [photos]="project.pictures" [width]="3"></app-photos>
+
+        <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" (click)="lightbox($event)">
+                <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
+            </a>
+
         <div class="description">
           <span>{{project.description}}</span>
         </div>

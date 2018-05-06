@@ -1,7 +1,13 @@
+require(['./lightgallery.js'], function() {
+    require(["./lg-zoom.js", "./lg-thumbnail.js"], function(){
+        lightGallery(document.getElementById('lightgallery'));
+    });
+});
+
 <div *ngIf="photos != null && photos.length > 0" class="photos">
   <button *ngIf="startIndex > 0" (click)="startIndex = startIndex - 1;">Previous</button>
   <div class="photo" *ngFor="let photo of photos; let i = index">
-    <img *ngIf="photoShouldShow(i)" src="{{getPhotoUrl(photo)}}">
+      <img *ngIf="photoShouldShow(i)" src="{{getPhotoUrl(photo)}}">
   </div>
   <button *ngIf="startIndex + width < photos.length" (click)="startIndex = startIndex + 1;">Next</button>
 </div>

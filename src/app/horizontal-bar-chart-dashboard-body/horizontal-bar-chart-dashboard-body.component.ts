@@ -24,10 +24,6 @@ export class HorizontalBarChartDashboardBodyComponent implements OnInit {
   }
 
   positionLabel(label){
-    // console.log(this.body.x_labels);
-    console.log("x_labels[0]: " + this.body.x_labels[0].text + ", label: " + label.text);
-    console.log("x_labels[1]: " + this.body.x_labels[1].text + ", label: " + label.text);
-    // console.log(this.body.x_labels[this.body.x_labels.length]);
     if(this.body.x_labels[0].text == label.text) {
       return "left";
     }

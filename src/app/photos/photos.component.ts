@@ -33,5 +33,4 @@ export class PhotosComponent implements OnInit {
     }
     return false;
   }
-
 }
