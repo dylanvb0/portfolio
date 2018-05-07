@@ -42,7 +42,7 @@ $screen-sm: 768px;
   // padding-top: $top-bar-height;
   width: $side-bar-width;
   height: 100%;
-  background: linear-gradient(#9FDDFD, #056EC2);
+  background: linear-gradient(rgb(124, 210, 255), rgb(34, 120, 181));
   transition: all 0.225s;
   transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
 
@@ -82,6 +82,30 @@ $screen-sm: 768px;
         }
       }
     }
+  }
+}
+
+.colors {
+  position: absolute;
+  bottom: 0;
+  padding-left: 24px;
+  padding-bottom: 15px;
+
+  .color {
+    float: left;
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    margin-right: 8px;
+
+    &.selected {
+      border: 1px solid #fff;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50)
+    }
+
+    &.blue {background-color: #4AA0DD;}
+    &.red {background-color: #EC7575;}
+    &.purple {background-color: #a29bfe;}
+    &.orange {background-color: #EEAA7B;}
   }
 }
 

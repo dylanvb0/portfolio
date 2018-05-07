@@ -15,27 +15,45 @@
 </div>
 <nav *ngIf="!client_session.isLoggedIn() && !admin_session.isLoggedIn()" class="side-bar">
   <ul>
-    <li><span class="icon icon-speedometer"></span><a routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
-    <li><span class="icon icon-graph"></span><a routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/about" routerLinkActive="active z-depth-1">About</a></li>
+    <li><span class="icon icon-speedometer"></span><a (click)="switchTheme('', '')" routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
+    <li><span class="icon icon-graph"></span><a (click)="switchTheme('', '')" routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
+    <li><span class="icon icon-user"></span><a (click)="switchTheme('', '')" routerLink="/about" routerLinkActive="active z-depth-1">About</a></li>
 
     <!-- Temporarily hide login for aesthetic purposes -->
     <!-- <li><span class="icon icon-login"></span><a routerLink="/cms/login" routerLinkActive="active z-depth-1">Login</a></li> -->
   </ul>
+  <div class="colors">
+    <div class="color blue selected" (click)="switchTheme('#4AA0DD', '#F5A623')"></div>
+    <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
+    <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
+    <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+  </div>
 </nav>
 <nav *ngIf="client_session.isLoggedIn()" class="side-bar">
   <ul>
-    <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/dashboard" routerLinkActive="active ">Dashboard</a></li>
-    <li><span class="icon icon-graph"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/projects" routerLinkActive="active">Projects</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/about" routerLinkActive="active">About</a></li>
-    <li><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/photos" routerLinkActive="active">Photos</a></li>
+    <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/dashboard" routerLinkActive="active " (click)="switchTheme('', '')">Dashboard</a></li>
+    <li><span class="icon icon-graph"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/projects" routerLinkActive="active" (click)="switchTheme('', '')">Projects</a></li>
+    <li><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/about" routerLinkActive="active" (click)="switchTheme('', '')">About</a></li>
+    <li><span class="icon icon-user"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/photos" routerLinkActive="active" (click)="switchTheme('', '')">Photos</a></li>
     <li><span class="icon icon-login"></span><a (click)="logOutClient()">Logout</a>
   </ul>
+  <div class="colors">
+    <div class="color blue selected" (click)="switchTheme('#4AA0DD', '#F5A623')"></div>
+    <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
+    <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
+    <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+  </div>
 </nav>
 <nav *ngIf="admin_session.isLoggedIn()" class="side-bar">
   <ul>
-    <li><span class="icon icon-user"></span><a routerLink="/admin/clients" routerLinkActive="active">Clients</a></li>
-    <li><span class="icon icon-speedometer"></span><a routerLink="/admin/admins" routerLinkActive="active">Admins</a></li>
+    <li><span class="icon icon-user"></span><a routerLink="/admin/clients" routerLinkActive="active" (click)="switchTheme('', '')" >Clients</a></li>
+    <li><span class="icon icon-speedometer"></span><a routerLink="/admin/admins" routerLinkActive="active" (click)="switchTheme('', '')">Admins</a></li>
     <li><span class="icon icon-login"></span><a (click)="logOutAdmin()">Logout</a>
   </ul>
+  <div class="colors">
+    <div class="color blue selected" (click)="switchTheme('#4AA0DD', '#F5A623')"></div>
+    <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
+    <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
+    <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+  </div>
 </nav>
