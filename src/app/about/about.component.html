@@ -1,24 +1,27 @@
 <div *ngIf="aboutService.about != null">
-  <p>{{aboutService.about.text}}</p>
   <div class="right">
     <app-photos [photos]="aboutService.about.pictures" [width]="1"></app-photos>
     <div class="card get-connected">
-      <div *ngIf="aboutService.about.email != null">
-        <span>ICON</span>
-        <span>{{aboutService.about.email}}</span>
-      </div>
-      <div *ngIf="aboutService.about.linkedin != null">
-        <span>ICON</span>
-        <span>{{aboutService.about.linkedin}}</span>
-      </div>
-      <div *ngIf="aboutService.about.github != null">
-        <span>ICON</span>
-        <span>{{aboutService.about.github}}</span>
-      </div>
-      <div *ngIf="aboutService.about.stackoverflow != null">
-        <span>ICON</span>
-        <span>{{aboutService.about.stackoverflow}}</span>
+      <div class="header">Get Connected</div>
+      <div class="content">
+        <div class="item" *ngIf="aboutService.about.email != null">
+          <span class="icon icon-envelope"></span>
+          <a href="mailto:{{aboutService.about.email}}">{{aboutService.about.email}}</a>
+        </div>
+        <div class="item" *ngIf="aboutService.about.linkedin != null">
+          <span class="icon icon-social-linkedin"></span>
+          <a href="{{aboutService.about.linkedin}}">{{aboutService.about.linkedin}}</a>
+        </div>
+        <div class="item" *ngIf="aboutService.about.github != null">
+          <span class="icon icon-social-github"></span>
+          <a href="{{aboutService.about.github}}">{{aboutService.about.github}}</a>
+        </div>
+        <div class="item" *ngIf="aboutService.about.stackoverflow != null">
+          <span class="icon icon-menu"></span>
+          <a href="{{aboutService.about.stackoverflow}}">{{aboutService.about.stackoverflow}}</a> <!-- Handle relative link vs direct with http/https -->
+        </div>
       </div>
     </div>
   </div>
+  <p>{{aboutService.about.text}}</p>
 </div>
