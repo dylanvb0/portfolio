@@ -8,16 +8,18 @@
       <div class="top-text">
         <div class="header">
           <h2>{{project.name}}</h2>
-          <p>{{project.season}} {{project.year}}</p>
-          <p>{{project.technologies}}</p>
         </div>
-        <app-photos [photos]="project.pictures" [width]="3"></app-photos>
-        <div class="description">
-          <span>{{project.description}}</span>
+        <app-photos [photos]="project.pictures" [width]="2"></app-photos>
+        <div class="content">
+          <p class="technologies">{{project.technologies}}</p>
+          <p>{{project.season}} {{project.year}}</p>
+          <div class="description">
+            <span>{{project.description}}</span>
+          </div>
+          <button type="button" (click)="bottomVisible=!bottomVisible" class="more-details">LEARN MORE</button>
         </div>
       </div>
-      <p *ngIf="project.demo_link != ''">{{project.demo_link}}</p>
-      <button (click)="bottomVisible=!bottomVisible" class="more-details">More Details</button>
+      <p *ngIf="project.demo_link != ''">{{project.demo_link}}</p> <!-- Is this allowed to go in top-text? -->
     </div>
     <div *ngIf="bottomVisible" class="bottom">
       <div class="hidden-sections">

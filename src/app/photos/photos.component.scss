@@ -1,11 +1,62 @@
 .photos{
-  clear:both;
+  position: relative;
+  display: inline-block;
+  // display: flex;
+  clear: both;
+  text-align: center;
+  overflow: hidden;
+
   .photo{
-    clear: none;
-    float:left;
+    display: inline-block;
+    // margin-left: 8px; margin-right: 8px;
+    margin-bottom: 16px;
+
     img{
       width: 300px;
       height: 200px;
+      margin-left: 8px; margin-right: 8px;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+
+      &.single {
+        margin-left: 0; margin-right: 0;
+      }
     }
+  }
+  .arrow {
+    /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+    content: "";
+    display: inline-block;
+    top: 10px;
+    /* By using an em scale, the arrows will size with the font */
+    width: 30px;
+    height: 30px;
+
+
+    &.right {
+      border-right: 0.3em solid black;
+      border-top: 0.3em solid black;
+      transform: rotate(45deg);
+      margin-right: 0.5em;
+    }
+
+    &.left {
+      border-left: 0.3em solid black;
+      border-top: 0.3em solid black;
+      transform: rotate(-45deg);
+      margin-left: 0.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .photos.single {
+    float: left;
+    clear: none;
+    margin-right: 30px;
+  }
+}
+@media screen and (max-width: 668px) {
+  .photos.single {
+    float: none; clear: both; margin: 0 auto;
   }
 }
