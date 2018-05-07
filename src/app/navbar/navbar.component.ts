@@ -35,8 +35,8 @@ export class NavbarComponent implements OnInit {
           let pColor = sessionStorage.getItem("pColor");
           let sColor = sessionStorage.getItem("sColor");
 
-          document.querySelectorAll('.active').forEach(function(elem) {
-           elem.style.backgroundColor = sessionStorage.getItem("sColor");
+          (Array.from(document.querySelectorAll('.active'))).forEach(function(elem) {
+           (elem as HTMLElement).style.backgroundColor = sessionStorage.getItem("sColor");
           });
 
           if(pColor == "#4AA0DD") {document.querySelector(".color.blue").classList.add("selected");}
@@ -66,7 +66,7 @@ export class NavbarComponent implements OnInit {
   }
 
   switchTheme(pColor, sColor) {
-    document.querySelectorAll('.selected').forEach(function(elem) {
+    Array.from(document.querySelectorAll('.selected')).forEach(function(elem) {
      elem.classList.remove("selected");
     });
 
@@ -91,8 +91,8 @@ export class NavbarComponent implements OnInit {
 
     //Same issue as above timing issue, need class to be active before accessing .active
     setTimeout(function (){
-      document.querySelectorAll('.active').forEach(function(elem) {
-       elem.style.backgroundColor = sColor;
+      Array.from(document.querySelectorAll('.active')).forEach(function(elem) {
+       (elem as HTMLElement).style.backgroundColor = sColor;
       });
     }, 0);
 
