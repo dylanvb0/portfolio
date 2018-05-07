@@ -18,9 +18,9 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.dashboardService.getDashboardItems();
     this.aboutService.getAbout();
     this.startDelayTimer();
+    this.dashboardService.getDashboardItems();
   }
 
   clearDelayTimer() { clearInterval(this.intervalId); }

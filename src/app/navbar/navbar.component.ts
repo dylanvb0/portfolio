@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.client_service.getClient();
+      //this.client_service.getClient();
       //probably don't need to be storing my colors in session, could just use window variables
       sessionStorage.setItem('pColor', '#4AA0DD');
       sessionStorage.setItem('sColor', '#F5A623');

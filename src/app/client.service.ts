@@ -19,16 +19,23 @@ export class ClientService {
     this.client = new Client();
   }
 
-  getNamespace(): string {
+  getNamespace(callback: (data) => Observable<any>) : Observable<any>{
     var routeNs = this.route.parseUrl(this.route.url).root.children.primary.segments[1];
-    console.log(routeNs);
-    if(typeof routeNs != 'undefined') return routeNs.toString();
+    console.log("routeNS: " + routeNs);
+    if(typeof routeNs != 'undefined') return callback(routeNs.toString());
     var currentDomain = window.location.hostname;
     console.log(this.client);
-    if(this.client.domain == currentDomain && typeof this.client.namespace != 'undefined') return this.client.namespace;
+    if(this.client.domain == currentDomain && typeof this.client.namespace != 'undefined') return callback(this.client.namespace);
     console.log("cache miss");
-    this.getClient().subscribe(ns => {
-      return this.client.namespace;
+    // return this.getClient().subscribe(ns => {
+    //   console.log(ns);
+    //   console.log(ns.namespace);
+    //   callback(ns.namespace);
+    // })
+    return this.getClient().map(ns => {
+      console.log("Client:" + ns);
+      console.log("Client Namespace: " + ns.namespace);
+      return callback(ns.namespace);
     })
   }
 
@@ -39,18 +46,19 @@ export class ClientService {
     }else{
       this.client.domain = window.location.hostname;
       if(this.client.domain == "localhost"){
-        console.log("local");
-        this.client.namespace = "dylanvb";
-        this.client.name = "Dylan Vander Berg";
-        return of(this.client);
-      }else{
+        this.client.domain = "dylanvb.me";
+        // console.log("local");
+        // this.client.namespace = "dylanvb";
+        // this.client.name = "Dylan Vander Berg";
+        // return of(this.client);
+      }//else{
         console.log("remote");
         return this.http.get(this.website + '/' + this.client.domain)
           .map((client : Client) => {
             this.client = client;
             return this.client;
           });
-      }
+      //}
     }
   }
 

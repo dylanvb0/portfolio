@@ -20,8 +20,12 @@ export class ProjectService {
     private messageService : AlertMessageService
   ) { }
 
-  getProjects(): void {
-    this.http.get(this.website + this.client.getNamespace() + this.method)
+  getProjects(ns?): Observable<void> {
+    if(!ns){
+      this.client.getNamespace(res => this.getProjects(res)).subscribe();
+      return;
+    }
+    this.http.get(this.website + ns + this.method)
       .map((data : any) => {
         return data.map(obj => <Project>obj);
       }).subscribe(projects => {
@@ -30,7 +34,8 @@ export class ProjectService {
       });
   }
 
-  saveProject(project): Observable<number> {
+  saveProject(project, ns?): Observable<number> {
+    if(!ns) return this.client.getNamespace(res => this.saveProject(project, res));
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -38,7 +43,7 @@ export class ProjectService {
     };
     console.log(JSON.stringify(project));
     return this.http.post(
-      this.website + this.client.getNamespace() + this.method,
+      this.website + ns + this.method,
       JSON.stringify(project),
       httpOptions
     ).map((data : number) => {
@@ -49,8 +54,9 @@ export class ProjectService {
     });
   }
 
-  deleteProject(project): Observable<Object> {
-    return this.http.delete(this.website + this.client.getNamespace() + this.method + "/" + project.id);
+  deleteProject(project, ns?): Observable<Object> {
+    if(!ns) return this.client.getNamespace(res => this.deleteProject(project, ns));
+    return this.http.delete(this.website + ns + this.method + "/" + project.id);
   }
 
   sortProjects() {

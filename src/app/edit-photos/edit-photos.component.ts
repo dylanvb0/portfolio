@@ -38,7 +38,7 @@ export class EditPhotosComponent implements OnInit {
   }
 
   getPhotoUrl(name) {
-    return "https://dylanvb.me/wwwroot/" + this.client.getNamespace() + "/images/" + name;
+    return "https://dylanvb.me/wwwroot/" + this.client.client.namespace + "/images/" + name;
   }
 
 

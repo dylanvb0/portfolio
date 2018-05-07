@@ -21,8 +21,14 @@ export class DashboardService {
     private messageService : AlertMessageService
   ) { }
 
-  getDashboardItems() : void {
-    this.http.get(this.website + this.client.getNamespace() + this.method)
+  getDashboardItems(ns?) : Observable<void> {
+    if(!ns) {
+      this.client.getNamespace(res => this.getDashboardItems(res)).subscribe();
+      return;
+    }
+    console.log("getting dashboard items");
+    console.log("Dashboard Ns:" + ns);
+    this.http.get(this.website + ns + this.method)
       .map((data : any) => {
         return data.map(obj => {
           return new DashboardItem(obj);
@@ -33,7 +39,9 @@ export class DashboardService {
       });
   }
 
-  saveDashboardItem(item_arg): Observable<number> {
+
+  saveDashboardItem(item_arg, ns?): Observable<number> {
+    if(!ns) return this.client.getNamespace(res => this.saveDashboardItem(item_arg, res));
     var item = (JSON.parse(JSON.stringify(item_arg)));
     const httpOptions = {
       headers: new HttpHeaders({
@@ -50,7 +58,7 @@ export class DashboardService {
     }
     console.log(JSON.stringify(item));
     return this.http.post(
-      this.website + this.client.getNamespace() + this.method,
+      this.website + ns + this.method,
       JSON.stringify(item),
       httpOptions
     ).map((data : number) => {
@@ -61,8 +69,9 @@ export class DashboardService {
     });
   }
 
-  deleteDashboardItem(item): Observable<Object> {
-    return this.http.delete(this.website + this.client.getNamespace() + this.method + "/" + item.id);
+  deleteDashboardItem(item, ns?): Observable<Object> {
+    if(!ns) return this.client.getNamespace(res => this.deleteDashboardItem(item, res));
+    return this.http.delete(this.website + ns + this.method + "/" + item.id);
   }
 
   sortDashboardItems() {
