@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { of } from 'rxjs/observable/of';
 
 import { Project } from './Project';
 import { ClientService } from './client.service';
@@ -32,6 +33,7 @@ export class ProjectService {
         this.projects = projects;
         this.sortProjects();
       });
+    return of(null);
   }
 
   saveProject(project, ns?): Observable<number> {

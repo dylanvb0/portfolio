@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { of } from 'rxjs/observable/of';
 
 import { DashboardItem } from './DashboardItem';
 import { ClientService } from './client.service';
@@ -37,6 +38,7 @@ export class DashboardService {
         this.dashboardItems = items;
         this.sortDashboardItems();
       });
+    return of(null);
   }
 
 

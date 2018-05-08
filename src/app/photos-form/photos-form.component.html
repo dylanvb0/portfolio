@@ -3,7 +3,7 @@
   <div *ngFor="let photo of photos; let i = index" class="col">
     <select class="form-control" (change)="cleanArray($event,i)" [(ngModel)]="photos[i]">
       <option></option>
-      <option *ngFor="let photoOption of photoOptions">
+      <option *ngFor="let photoOption of photoOptions" [ngValue]="photoOption">
         {{photoOption}}
       </option>
     </select>
@@ -11,7 +11,7 @@
   <div class="col">
     <select class="form-control" (change)="newPhoto($event)">
       <option></option>
-      <option *ngFor="let photoOption of photoOptions">
+      <option *ngFor="let photoOption of photoOptions" [ngValue]="photoOption">
         {{photoOption}}
       </option>
     </select>

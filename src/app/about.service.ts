@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { of } from 'rxjs/observable/of';
 
 import { About } from './About';
 import { ClientService } from './client.service';
@@ -29,6 +30,7 @@ export class AboutService {
     this.http.get(this.website + ns + this.method)
       .map(data => <About>data)
       .subscribe(about => this.about = about[0]);
+    return of(null);
   }
 
   saveAbout(ns?): Observable<number> {

@@ -20,6 +20,7 @@ export class DashboardFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.item = new DashboardItem("simple");
   }
 
   saveChanges() : void {

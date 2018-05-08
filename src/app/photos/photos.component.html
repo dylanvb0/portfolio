@@ -3,7 +3,7 @@
   <div class="photo" *ngFor="let photo of photos; let i = index">
       <img *ngIf="photoShouldShow(i)" [ngClass]="width == 1 ? 'single' : ''" src="{{getPhotoUrl(photo)}}">
   </div>
-  <!-- <div class="right">
+  <div class="right">
     <div class="arrow right" *ngIf="startIndex + width < photos.length" (click)="startIndex = startIndex + 1;"></div>
-  </div> -->
+  </div>
 </div>

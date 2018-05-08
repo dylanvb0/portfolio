@@ -16,7 +16,7 @@ export class PhotoService {
   ) { }
 
   uploadPhoto(photo, ns?) : Observable<string>{
-    if(!ns) return this.client.getNamespace(res => this.uploadPhoto(photo, ns));
+    if(!ns) return this.client.getNamespace(res => this.uploadPhoto(photo, res));
     console.log(photo);
     let formData = new FormData();
     formData.append('upload', photo);
@@ -30,13 +30,13 @@ export class PhotoService {
   }
 
   getPhotos(ns?) : Observable<string[]>{
-    if(!ns) return this.client.getNamespace(res => this.uploadPhoto(ns));
+    if(!ns) return this.client.getNamespace(res => this.getPhotos(res));
     return this.http.get(this.website + ns + this.method)
       .map((data : any) => <string[]>data);
   }
 
   deletePhoto(photo, ns?) : Observable<number>{
-    if(!ns) return this.client.getNamespace(res => this.uploadPhoto(ns));
+    if(!ns) return this.client.getNamespace(res => this.deletePhoto(res));
     return this.http.delete(this.website + ns + this.method + '/' + photo)
       .map(res => {
         return 0;

@@ -21,6 +21,7 @@ export class DashboardListBodyFormComponent implements OnInit {
   }
 
   addItem() {
+    if(typeof this.body.list_items == 'undefined') this.body.list_items = [];
     this.body.list_items.push(new TextItem(""));
   }
 

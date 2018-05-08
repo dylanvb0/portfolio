@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PhotoService } from '../photo.service';
 import { ClientService } from '../client.service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-photos',
@@ -15,7 +16,8 @@ export class PhotosComponent implements OnInit {
 
   constructor(
     private photoService: PhotoService,
-    private client: ClientService
+    private client: ClientService,
+    private session: SessionService
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,11 @@ export class PhotosComponent implements OnInit {
   }
 
   getPhotoUrl(name) {
-    return "https://dylanvb.me/wwwroot/" + this.client.client.namespace + "/images/" + name;
+    if(typeof this.client.client.namespace == 'undefined'){
+      return "https://dylanvb.me/wwwroot/" + this.client.client.namespace + "/images/" + name;
+    }else{
+      return "https://dylanvb.me/wwwroot/" + this.session.getClient().namespace + "/images/" + name;
+    }
   }
 
   photoShouldShow(index) : boolean {

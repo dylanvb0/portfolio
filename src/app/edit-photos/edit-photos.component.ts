@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { PhotoService } from '../photo.service';
 import { ClientService } from '../client.service';
 
@@ -14,7 +15,8 @@ export class EditPhotosComponent implements OnInit {
 
   constructor(
     private photoService: PhotoService,
-    private client: ClientService
+    private client: ClientService,
+    private route : ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,8 @@ export class EditPhotosComponent implements OnInit {
   }
 
   getPhotoUrl(name) {
-    return "https://dylanvb.me/wwwroot/" + this.client.client.namespace + "/images/" + name;
+    const routeNs = this.route.snapshot.paramMap.get('namespace');
+    return "https://dylanvb.me/wwwroot/" + routeNs + "/images/" + name;
   }
 
 
