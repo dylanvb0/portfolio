@@ -7,8 +7,72 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- inline spinner styles to be able to display spinner right away -->
+  <style type="text/css">
+    body, html {
+      height: 100%;
+    }
+    .app-loading {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    /* .app-loading .spinner {
+      height: 200px;
+      width: 200px;
+      animation: rotate 2s linear infinite;
+      transform-origin: center center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #ddd;
+    }
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    } */
+
+
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+  <!-- loading layout replaced by app after startupp -->
+    <div class="app-loading">
+      <div class="logo">
+      <p id="icon" style="text-shadow: rgb(48, 117, 165) 0px 0px 0px, rgb(49, 119, 168) 1px 1px 0px, rgb(50, 122, 172) 2px 2px 0px, rgb(51, 124, 175) 3px 3px 0px, rgb(52, 127, 179) 4px 4px 0px, rgb(53, 129, 182) 5px 5px 0px, rgb(54, 132, 186) 6px 6px 0px, rgb(55, 134, 189) 7px 7px 0px, rgb(56, 137, 193) 8px 8px 0px, rgb(57, 139, 196) 9px 9px 0px, rgb(58, 142, 200) 10px 10px 0px, rgb(59, 144, 203) 11px 11px 0px, rgb(60, 147, 207) 12px 12px 0px, rgb(61, 149, 210) 13px 13px 0px, rgb(62, 152, 214) 14px 14px 0px, rgb(63, 154, 217) 15px 15px 0px, rgb(64, 157, 221) 16px 16px 0px, rgb(65, 159, 224) 17px 17px 0px, rgb(66, 162, 228) 18px 18px 0px, rgb(67, 164, 231) 19px 19px 0px; font-size: 88px; color: rgb(255, 255, 255); height: 123px; width: 123px; line-height: 123px; border-radius: 12%; text-align: center; background-color: rgb(68, 167, 235); font-family: Roboto,sans-serif; !important"> D </p>
+      </div>
+      <!-- <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg> -->
+    </div>
+  </app-root>
 </body>
 </html>

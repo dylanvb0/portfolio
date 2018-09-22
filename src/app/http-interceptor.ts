@@ -16,6 +16,7 @@ export class MyHttpInterceptor implements HttpInterceptor {
       const authHeader = 'Bearer ' + sessionStorage.getItem('session_token');
       var req = req.clone({headers: req.headers.set('Authorization', authHeader)});
     }
+    console.log(req);
     return next.handle(req).catch((err: any) => {
       if(err instanceof HttpErrorResponse){
         if(err.status === 401){

@@ -25,7 +25,7 @@ export class PhotosComponent implements OnInit {
   }
 
   getPhotoUrl(name) {
-    if(typeof this.client.client.namespace == 'undefined'){
+    if(typeof this.client.client.namespace !== 'undefined'){
       return "https://dylanvb.me/wwwroot/" + this.client.client.namespace + "/images/" + name;
     }else{
       return "https://dylanvb.me/wwwroot/" + this.session.getClient().namespace + "/images/" + name;

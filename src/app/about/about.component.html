@@ -8,17 +8,14 @@
           <span class="icon icon-envelope"></span>
           <a href="mailto:{{aboutService.about.email}}">{{aboutService.about.email}}</a>
         </div>
-        <div class="item" *ngIf="aboutService.about.linkedin != null">
-          <span class="icon icon-social-linkedin"></span>
-          <a href="{{aboutService.about.linkedin}}">{{aboutService.about.linkedin}}</a>
+        <div class="item inline" *ngIf="aboutService.about.linkedin != null">
+          <span class="icon icon-social-linkedin" (click)="openNewTab('www.linkedin.com/in/' + aboutService.about.linkedin)"></span>
         </div>
-        <div class="item" *ngIf="aboutService.about.github != null">
-          <span class="icon icon-social-github"></span>
-          <a href="{{aboutService.about.github}}">{{aboutService.about.github}}</a>
+        <div class="item inline" *ngIf="aboutService.about.github != null">
+          <span class="icon icon-social-github" (click)="openNewTab('github.com/' + aboutService.about.github)"></span>
         </div>
-        <div class="item" *ngIf="aboutService.about.stackoverflow != null">
-          <span class="icon icon-menu"></span>
-          <a href="{{aboutService.about.stackoverflow}}">{{aboutService.about.stackoverflow}}</a> <!-- Handle relative link vs direct with http/https -->
+        <div class="item inline" *ngIf="aboutService.about.stackoverflow != null">
+          <span class="icon icon-menu" (click)="openNewTab('stackoverflow.com/u/' + aboutService.about.stackoverflow)"></span>
         </div>
       </div>
     </div>

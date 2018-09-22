@@ -57,7 +57,7 @@ export class ProjectService {
   }
 
   deleteProject(project, ns?): Observable<Object> {
-    if(!ns) return this.client.getNamespace(res => this.deleteProject(project, ns));
+    if(!ns) return this.client.getNamespace(res => this.deleteProject(project, res));
     return this.http.delete(this.website + ns + this.method + "/" + project.id);
   }
 

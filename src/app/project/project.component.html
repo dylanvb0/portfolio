@@ -9,7 +9,7 @@
         <div class="header">
           <h2>{{project.name}}</h2>
         </div>
-        <app-photos [photos]="project.pictures" [width]="2"></app-photos>
+        <app-photos [photos]="project.pictures" [width]="3"></app-photos>
         <div class="content">
           <p class="technologies">{{project.technologies}}</p>
           <p>{{project.season}} {{project.year}}</p>
@@ -28,7 +28,7 @@
           <p>{{section.text}}</p>
         </div>
       </div>
-      <button *ngIf="project.marketing_url != ''" (click)="visitMarketingSite()">{{project.marketing_url}}</button>
+      <button class="btn" *ngIf="project.marketing_url != ''" (click)="visitMarketingSite(project.marketing_url)">Marketing Site</button>
     </div>
   </div>
 </div>

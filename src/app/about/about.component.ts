@@ -17,4 +17,7 @@ export class AboutComponent implements OnInit {
     this.aboutService.getAbout();
   }
 
+  openNewTab(url) {
+    window.open("https://" + url, "_blank");
+  }
 }

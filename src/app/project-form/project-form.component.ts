@@ -29,7 +29,7 @@ export class ProjectFormComponent implements OnInit {
 
   deleteProject(): void {
     this.projectService.deleteProject(this.project).subscribe(obj => {
-      this.projects.splice(this.projects.indexOf(this.project));
+      this.projects.splice(this.projects.indexOf(this.project), 1);
       this.project = new Project();
     });
   }
