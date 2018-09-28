@@ -11,7 +11,7 @@ import { Hsla } from '../../../node_modules/ngx-color-picker';
   styleUrls: ['./navbar.component.scss', './hamburgers.css']
 })
 export class NavbarComponent implements OnInit {
-  public color: string = '#ffffff';
+  public pColor: string = '#ffffff';
   public isOpen: boolean = false;
 
   constructor(
@@ -35,11 +35,11 @@ export class NavbarComponent implements OnInit {
           // (Array.from(document.querySelectorAll('.active'))).forEach(function(elem) {
           //  (elem as HTMLElement).style.backgroundColor = sessionStorage.getItem("sColor");
           // });
-          if(pColor) {
-            if(pColor == "#4AA0DD") {document.querySelector(".color.blue").classList.add("selected");}
-            if(pColor == "#EC7575") {document.querySelector(".color.red").classList.add("selected");}
-            if(pColor == "#a29bfe") {document.querySelector(".color.purple").classList.add("selected");}
-            if(pColor == "#EEAA7B") {document.querySelector(".color.orange").classList.add("selected");}
+          if(this.pColor) {
+            if(this.pColor == "#4AA0DD") {document.querySelector(".color.blue").classList.add("selected");}
+            if(this.pColor == "#EC7575") {document.querySelector(".color.red").classList.add("selected");}
+            if(this.pColor == "#a29bfe") {document.querySelector(".color.purple").classList.add("selected");}
+            if(this.pColor == "#EEAA7B") {document.querySelector(".color.orange").classList.add("selected");}
           }
         }, 0);
       }
@@ -123,9 +123,11 @@ export class NavbarComponent implements OnInit {
     var rgb = 'rgb(' + (hex = hex.replace('#', '')).match(new RegExp('(.{' + hex.length/3 + '})', 'g')).map(function(l) { return parseInt(hex.length%2 ? l+l : l, 16); }).join(',') + ')';
 
     // Get array of RGB values
-    rgb = rgb.replace(/[^\d,]/g, '').split(',');
+    var rgbArr = rgb.replace(/[^\d,]/g, '').split(',');
 
-    var r = rgb[0], g = rgb[1], b = rgb[2];
+    var r : any = rgbArr[0];
+    var g : any = rgbArr[1];
+    var b : any = rgbArr[2];
 
     // Convert RGB to HSL
     // Adapted from answer by 0x000f http://stackoverflow.com/a/34946092/4939630
@@ -187,8 +189,8 @@ export class NavbarComponent implements OnInit {
     b = Math.round(b * 255);
 
     // Convert r b and g values to hex
-    rgb = b | (g << 8) | (r << 16);
-    return "#" + (0x1000000 | rgb).toString(16).substring(1);
+    var rgbNum = b | (g << 8) | (r << 16);
+    return "#" + (0x1000000 | rgbNum).toString(16).substring(1);
   }
 
   private shadeColor(col, amt) {
