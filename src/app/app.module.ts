@@ -34,6 +34,8 @@ import { MyHttpInterceptor } from './http-interceptor';
 import { AlertMessageComponent } from './alert-message/alert-message.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { ClickOutsideModule } from 'ng-click-outside';
 import { ListDashboardBodyComponent } from './list-dashboard-body/list-dashboard-body.component';
 import { SimpleDashboardBodyComponent } from './simple-dashboard-body/simple-dashboard-body.component';
 import { HorizontalBarChartDashboardBodyComponent } from './horizontal-bar-chart-dashboard-body/horizontal-bar-chart-dashboard-body.component';
@@ -107,7 +109,9 @@ const appRoutes = [
     ),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ColorPickerModule,
+    ClickOutsideModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [

@@ -1,8 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css');
 $side-bar-width: 240px;
 $top-bar-height: 80px;
-
 $screen-sm: 768px;
+$secondary-color: var(--secondary-color);
+
 
 .top-bar {
   position: fixed; top: 0; right: 0; z-index: 1;
@@ -40,6 +41,7 @@ $screen-sm: 768px;
 .side-bar {
   float: left;
   position: fixed;
+  z-index: 1;
   // padding-top: $top-bar-height;
   width: $side-bar-width;
   height: 100%;
@@ -79,7 +81,7 @@ $screen-sm: 768px;
         line-height: $side-bar-item-height;
 
         &.active {
-          background-color: #F5A623;
+          background-color: $secondary-color;
         }
       }
     }
@@ -97,6 +99,7 @@ $screen-sm: 768px;
     width: 30px; height: 30px;
     border-radius: 8px;
     margin-right: 8px;
+    cursor: pointer;
 
     &.selected {
       border: 1px solid #fff;
@@ -107,6 +110,26 @@ $screen-sm: 768px;
     &.red {background-color: #EC7575;}
     &.purple {background-color: #a29bfe;}
     &.orange {background-color: #EEAA7B;}
+    &.selector {
+      overflow: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        margin: auto;
+        pointer-events: none;
+        top: 0; left: 0; bottom: 0; right: 0;
+        width: 20px; height: 20px;}
+      input {
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+        height: 100%;
+        color: transparent;
+
+        &:focus {outline: none;}
+      }
+    }
   }
 }
 
@@ -116,8 +139,10 @@ $screen-sm: 768px;
   }
   .top-bar {
     width: 100%;
+
+    h1 {font-size: 28px;}
   }
   .top-bar {
-    .hamburger {display: inline-block;}
+    .hamburger {display: inline-block; padding-left: 7px;}
   }
 }

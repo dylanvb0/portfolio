@@ -1,4 +1,4 @@
-$primary-color: #4AA0DD;
+$primary-color: var(--primary-color);
 
 div.container {
   display: flex;

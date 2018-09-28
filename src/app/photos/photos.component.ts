@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit {
 
   @Input() photos: string[];
   @Input() width: number;
+  @Input() showBrowserTab: boolean;
   private startIndex : number;
 
   constructor(

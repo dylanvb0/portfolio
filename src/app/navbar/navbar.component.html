@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row top-bar z-depth-1">
     <div class="col-md-12">
-      <div class="hamburger hamburger--3dx">
+      <div class="hamburger hamburger--3dx" (click)="isOpen = !isOpen">
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
         </div>
@@ -13,7 +13,7 @@
     </div>
   </div>
 </div>
-<nav *ngIf="!client_session.isLoggedIn() && !admin_session.isLoggedIn()" class="side-bar">
+<nav *ngIf="!client_session.isLoggedIn() && !admin_session.isLoggedIn()" class="side-bar" [ngClass]="isOpen == true ? 'open' : ''"  (clickOutside)="isOpen = false" [exclude]="'.hamburger'">
   <ul>
     <li><span class="icon icon-speedometer"></span><a (click)="switchTheme('', '')" routerLink="/dashboard" routerLinkActive="active z-depth-1">Dashboard</a></li>
     <li><span class="icon icon-graph"></span><a (click)="switchTheme('', '')" routerLink="/projects" routerLinkActive="active z-depth-1">Projects</a></li>
@@ -27,9 +27,13 @@
     <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
     <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
     <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+    <div class="color selector">
+        <img src="/assets/colorwheel.png" />
+        <input [cpPosition]="'top'" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="switchTheme(color, '')" [cpOutputFormat]='hsla'/>
+    </div>
   </div>
 </nav>
-<nav *ngIf="client_session.isLoggedIn()" class="side-bar">
+<nav *ngIf="client_session.isLoggedIn()" class="side-bar" [ngClass]="isOpen == true ? 'open' : ''">
   <ul>
     <li><span class="icon icon-speedometer"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/dashboard" routerLinkActive="active " (click)="switchTheme('', '')">Dashboard</a></li>
     <li><span class="icon icon-graph"></span><a routerLink="/cms/{{client_session.getClient().namespace}}/projects" routerLinkActive="active" (click)="switchTheme('', '')">Projects</a></li>
@@ -42,6 +46,10 @@
     <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
     <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
     <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+    <div class="color selector">
+        <img src="/assets/colorwheel.png" />
+        <input [cpPosition]="'top'" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="switchTheme(color, '')" [cpOutputFormat]='hsla'/>
+    </div>
   </div>
 </nav>
 <nav *ngIf="admin_session.isLoggedIn()" class="side-bar">
@@ -55,5 +63,9 @@
     <div class="color red" (click)="switchTheme('#EC7575', '#468E8E')"></div>
     <div class="color purple" (click)="switchTheme('#a29bfe', '#FFD18C')"></div>
     <div class="color orange" (click)="switchTheme('#EEAA7B', '#58739D')"></div>
+    <div class="color selector">
+      <img src="/assets/colorwheel.png" />
+      <input [cpPosition]="'top'" [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="alert('hi')" [cpOutputFormat]='hsla'/>
+    </div>
   </div>
 </nav>
