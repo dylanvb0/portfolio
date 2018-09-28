@@ -28,7 +28,7 @@
           <p>{{section.text}}</p>
         </div>
       </div>
-      <button class="btn" *ngIf="project.marketing_url != ''" (click)="visitMarketingSite(project.marketing_url)">Marketing Site</button>
+      <button class="btn" *ngIf="project.marketing_url != null && project.marketing_url != ''" (click)="visitMarketingSite(project.marketing_url)">Marketing Site</button>
     </div>
   </div>
 </div>
