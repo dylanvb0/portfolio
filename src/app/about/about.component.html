@@ -10,15 +10,15 @@
         </div>
         <div class="item" *ngIf="aboutService.about.linkedin != null">
           <span class="icon icon-social-linkedin" (click)="openNewTab('www.linkedin.com/in/' + aboutService.about.linkedin)"></span>
-          <a href="www.linkedin.com/in/{{aboutService.about.linkedin}}">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/{{aboutService.about.linkedin}}" target="_blank">LinkedIn</a>
         </div>
         <div class="item" *ngIf="aboutService.about.github != null">
           <span class="icon icon-social-github" (click)="openNewTab('github.com/' + aboutService.about.github)"></span>
-          <a href="www.github.com/{{aboutService.about.github}}">GitHub</a>
+          <a href="https://www.github.com/{{aboutService.about.github}}" target="_blank">GitHub</a>
         </div>
         <div class="item" *ngIf="aboutService.about.stackoverflow != null">
           <span class="icon icon-menu" (click)="openNewTab('stackoverflow.com/u/' + aboutService.about.stackoverflow)"></span>
-          <a href="www.stackoverflow.com/u/{{aboutService.about.stackoverflow}}">StackOverflow</a>
+          <a href="https://www.stackoverflow.com/u/{{aboutService.about.stackoverflow}}" target="_blank">StackOverflow</a>
         </div>
       </div>
     </div>
